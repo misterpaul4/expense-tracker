@@ -2,6 +2,8 @@
   <%= f.input :username %>
   <%= f.input :name %>
   <%= f.input :currency %>
-  <%= f.input :budget, :input_html => {value: number_with_precision(f.object.budget, precision: 2) } %>         
+  <%= f.input :budget, :input_html => {value: number_with_precision(f.object.budget, precision: 2) } %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
   <%= f.button :submit%>
 <% end %>
