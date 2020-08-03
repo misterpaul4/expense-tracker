@@ -32,6 +32,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'currency_select'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
 
 # Reduces boot times through caching; required in config/boot.rb

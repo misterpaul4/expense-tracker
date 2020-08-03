@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'users#index'
 
-  resources :users, only: [:index, :create, :delete, :edit, :update]
-  
+  resources :users, only: %i[index create destroy edit update]
+
   get 'signup', to: 'users#new', as: 'signup'
 
   get 'login', to: 'sessions#new', as: 'login'

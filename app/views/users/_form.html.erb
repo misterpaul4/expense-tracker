@@ -1,7 +1,6 @@
 <%= simple_form_for @user do |f| %>
   <%= f.input :username %>
-  <%= f.input :name %>
-  <%= f.input :currency %>
+  <%= f.currency_select(:currency, ["USD", "EUR", "GBP"])%>
   <%= f.input :budget, :input_html => {value: number_with_precision(f.object.budget, precision: 2) } %>
   <%= f.input :password %>
   <%= f.input :password_confirmation %>

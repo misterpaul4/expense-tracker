@@ -3,8 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Username</th>
+      <th>username</th>
       <th>budget</th>
       <th colspan="2"></th>
     </tr>
@@ -13,7 +12,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
         <td><%= user.username %></td>
         <td><%= amount(user, user.budget) %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
@@ -25,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+<%= link_to 'New User', signup_path %>
