@@ -14,6 +14,10 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @expense_categories = [
+          "grocery", "travel", "gambling", "entertainment", "sports", "kids", "internet bill", "holidays",
+          "gifts", "petrol", "shopping", "water bill", "electric bill", "laundry"
+        ].sort
   end
 
   # GET /transactions/1/edit
@@ -22,7 +26,9 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = Transaction.new(transaction_params)
+    # @transaction = Transaction.new(transaction_params)
+    @transaction = current_user.transactions.build(transaction_params)
+    @transaction.expense_id = 1
 
     respond_to do |format|
       if @transaction.save
@@ -68,6 +74,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.fetch(:transaction, {})
+    params.require(:transaction).permit(:amount, :description, :category)
   end
 end
