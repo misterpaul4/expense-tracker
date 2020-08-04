@@ -14,7 +14,8 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @expense_categories = [
+    # hints
+    @expense_hints = [
           "grocery", "travel", "gambling", "entertainment", "sports", "kids", "internet bill", "holidays",
           "gifts", "petrol", "shopping", "water bill", "electric bill", "laundry"
         ].sort
@@ -74,6 +75,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:amount, :description, :category)
+    params.require(:transaction).permit(:amount, :description)
   end
 end

@@ -13,6 +13,7 @@
     <nav>
       <span>logged in as: <%= current_user.username %> <%= link_to 'Edit', edit_user_path(current_user) %>
       </span>
+      <p>add new expense category: <%= link_to 'New Category', new_expense_path %></p>
       <p><strong>initial budget: </strong><%= amount(current_user.budget) %></p>
       <p><strong>total expenses:</strong> <%= amount(total_expenses)%></p>
       <p><strong>current balance:</strong> <%= amount(current_user.budget - total_expenses) %></p>

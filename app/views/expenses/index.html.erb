@@ -1,0 +1,25 @@
+<h1>Expense Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenses.each do |expense| %>
+      <tr>
+        <td><%= expense.name %></td>
+        <td><%= expense.user_id %>
+          <td><%= link_to 'Show', expense %></td>
+          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+          <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Category', new_expense_path %>
