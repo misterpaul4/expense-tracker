@@ -14,6 +14,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+    @categories = Expense.all
     # hints
     @expense_hints = [
           "grocery", "travel", "gambling", "entertainment", "sports", "kids", "internet bill", "holidays",
@@ -27,13 +28,11 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    # @transaction = Transaction.new(transaction_params)
     @transaction = current_user.transactions.build(transaction_params)
-    @transaction.expense_id = 1
 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
         format.html { render :new }
@@ -75,6 +74,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:amount, :description)
+    params.require(:transaction).permit(:amount, :description, :expense_id)
   end
 end
