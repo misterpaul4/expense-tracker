@@ -1,6 +1,8 @@
 class ExpensesController < ApplicationController
+  before_action :authenticate_user
+
   def index
-    @expenses = Expense.all
+    @expenses = current_user.expenses
   end
 
   def new

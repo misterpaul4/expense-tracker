@@ -1,11 +1,21 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :total_expenses
+  helper_method :current_user, :total_expenses, :user_logged_in?
 
   def current_user
-    User.find(session[:user_id]) if session[:user_id]
+    @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def total_expenses
     current_user.transactions.sum(:amount)
+  end
+
+  def user_logged_in?
+    return true if session[:user_id]
+
+    false
+  end
+
+  def authenticate_user
+    redirect_to login_path unless user_logged_in?
   end
 end

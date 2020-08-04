@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_08_04_002846) do
     t.string "username"
     t.string "currency"
     t.decimal "budget", precision: 18, scale: 2
-    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

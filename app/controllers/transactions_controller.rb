@@ -1,10 +1,11 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user
   before_action :set_transaction, only: %i[show edit update destroy]
 
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = current_user.transactions
   end
 
   # GET /transactions/1
@@ -14,16 +15,13 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @categories = Expense.all
-    # hints
-    @expense_hints = [
-          "grocery", "travel", "gambling", "entertainment", "sports", "kids", "internet bill", "holidays",
-          "gifts", "petrol", "shopping", "water bill", "electric bill", "laundry"
-        ].sort
+    @categories = current_user.expenses
   end
 
   # GET /transactions/1/edit
-  def edit; end
+  def edit;
+    @categories = current_user.expenses
+  end
 
   # POST /transactions
   # POST /transactions.json
@@ -46,7 +44,7 @@ class TransactionsController < ApplicationController
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to transactions_path, notice: 'Transaction was successfully updated.' }
         format.json { render :show, status: :ok, location: @transaction }
       else
         format.html { render :edit }
