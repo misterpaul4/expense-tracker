@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
     @user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  def total_expenses
-    current_user.transactions.sum(:amount)
+  def total_expenses(item)
+    item.transactions.sum(:amount)
   end
 
   def user_logged_in?

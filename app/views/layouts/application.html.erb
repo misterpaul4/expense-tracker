@@ -16,9 +16,8 @@
         </span>
         <span> <%= link_to "Logout", logout_path, method: :delete %> </span>
         <p>add new expense category: <%= link_to 'New Category', new_expense_path %></p>
-        <p><strong>initial budget: </strong><%= amount(current_user.budget) %></p>
-        <p><strong>total expenses:</strong> <%= amount(total_expenses)%></p>
-        <p><strong>current balance:</strong> <%= amount(current_user.budget - total_expenses) %></p>
+        <p><strong>total expenses:</strong> <%= amount(total_expenses(current_user))%></p>
+        <%= balance %>
       <% end %>
     </nav>
     <% if notice.present? %>

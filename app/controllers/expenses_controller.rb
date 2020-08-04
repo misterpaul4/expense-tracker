@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user
+  before_action :set_expense, only: %i[show edit update destroy]
 
   def index
     @expenses = current_user.expenses
@@ -7,6 +8,17 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+  end
+
+  def edit
+  end
+
+  def update
+    if @expense.update(expense_params)
+      redirect_to expenses_path, notice: 'category updated.'
+    else
+      render :edit
+    end
   end
 
   def create
@@ -19,7 +31,16 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def destroy
+    @expense.destroy
+    redirect_to expenses_path, alert: 'expense category and related transactions removed'
+  end
+
   private
+
+  def set_expense
+    @expense = Expense.find(params[:id])
+  end
 
   def expense_params
     params.require(:expense).permit(:name, :icon)
