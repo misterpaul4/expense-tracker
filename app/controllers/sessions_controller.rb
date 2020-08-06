@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
-  def new; end
+  def new;
+    @user = login_path
+  end
 
   def welcome
   end

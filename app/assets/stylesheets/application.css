@@ -28,8 +28,13 @@
   background: var(--green-color)
 }
 
+.body-background {
+  background: #f0f0f0;
+}
+
 a:hover {
   text-decoration: none;
+  color: initial;
 }
 
 body {
@@ -53,10 +58,24 @@ img {
 .reg-btn {
   text-align: center;
   width: 25%;
+  font-weight: bold;
 }
 
 .login {
   background: var(--blue-color)
+}
+
+.submit-btn {
+  border: none;
+  background: none;
+}
+
+.nav-header {
+  font-size: 1.1rem;
+}
+
+.mid-font {
+  font-size: 1rem;
 }
 
 @media all and (max-width: 768px) {
