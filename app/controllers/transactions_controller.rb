@@ -5,6 +5,10 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
+    @transactions = current_user.transactions.ordered_by_most_recent
+  end
+
+  def index_sort
     @transactions = current_user.transactions
   end
 

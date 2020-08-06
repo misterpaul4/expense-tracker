@@ -4,12 +4,26 @@ module ApplicationHelper
   end
 
   def balance
-    if !!current_user.budget
-      "initial budget: #{amount(current_user.budget)} current balance: #{amount(current_user.budget - total_expenses(current_user))}"
+    "#{amount(current_user.budget - total_expenses(current_user))}"
+  end
+
+  def date(day)
+    day.to_formatted_s(:long)
+  end
+
+  def active_link
+    if request.env['PATH_INFO'].exclude? 'sort'
+      ["Most recent", transactions_path]
+    else
+      ["Most ancient", sort_transactions_path]
     end
   end
 
-  def current_url(url)
-    request.original_url == url
+  def inactive_link
+    if request.env['PATH_INFO'].exclude? 'sort'
+      ["Most ancient", sort_transactions_path]
+    else
+      ["Most recent", transactions_path]
+    end
   end
 end

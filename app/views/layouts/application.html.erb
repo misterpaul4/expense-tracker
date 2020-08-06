@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
   <head>
     <title>ExpenseTracker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/b9edfb7622.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,14 +14,6 @@
 
   <body>
     <nav>
-      <% if user_logged_in? and !current_url(root_url) %>
-        <span>logged in as: <%= current_user.username %> <%= link_to 'Edit', edit_user_path(current_user) %>
-        </span>
-        <span> <%= link_to "Logout", logout_path, method: :delete %> </span>
-        <p>add new expense category: <%= link_to 'New Category', new_expense_path %></p>
-        <p><strong>total expenses:</strong> <%= amount(total_expenses(current_user))%></p>
-        <%= balance %>
-      <% end %>
     </nav>
     <% if notice.present? %>
       <p> <%= notice %> </p>
