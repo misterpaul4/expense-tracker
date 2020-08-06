@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   resources :expenses
   resources :transactions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'transactions#index'
+
+  root 'users#profile'
 
   resources :users, only: %i[index create destroy edit update]
-
   get 'signup', to: 'users#new', as: 'signup'
 
   get 'welcome', to: 'sessions#welcome'

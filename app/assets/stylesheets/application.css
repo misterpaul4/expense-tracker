@@ -65,9 +65,21 @@ img {
   background: var(--blue-color)
 }
 
+.icon-wrap {
+  border: 1px solid white;
+}
+
 .submit-btn {
   border: none;
   background: none;
+}
+
+.up-font {
+  font-size: 1rem;
+}
+
+.up-font-2 {
+  font-size: 1.3rem;
 }
 
 .nav-header {

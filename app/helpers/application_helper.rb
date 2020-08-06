@@ -8,4 +8,8 @@ module ApplicationHelper
       "initial budget: #{amount(current_user.budget)} current balance: #{amount(current_user.budget - total_expenses(current_user))}"
     end
   end
+
+  def current_url(url)
+    request.original_url == url
+  end
 end

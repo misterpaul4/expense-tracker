@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 
   def edit; end
 
+  def profile
+    @user = User.find_by(params[:username])
+  end
+
   def update
     if @user.update(user_params)
       redirect_to root_path, notice: 'profile updated.'
@@ -24,7 +28,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path, notice: 'account created.'
+      redirect_to root_path, notice: 'account created.'
     else
       render :new
     end

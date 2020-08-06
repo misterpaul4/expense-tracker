@@ -1,0 +1,30 @@
+<div class="background primary-color d-flex justify-content-center align-items-center text-white">
+  <div class="w-25">
+    <div class="d-flex align-items-center mb-3 up-font">
+      <div class="icon-wrap p-2 rounded mr-2">
+        <i class="fas fa-cogs"></i>
+      </div>
+      <%= link_to 'Profile Settings', edit_user_path(current_user), class: "d-inline-block w-100 text-white" %>
+    </div>
+
+    <div class="d-flex align-items-center mb-3 up-font">
+      <div class="icon-wrap p-2 rounded mr-2">
+        <i class="fas fa-money-check-alt"></i>
+      </div>
+      <%= link_to 'All My Transactions', transactions_path, class: "d-inline-block w-100 text-white" %>
+    </div>
+
+    <div class="d-flex align-items-center mb-3 up-font">
+      <div class="icon-wrap p-2 rounded mr-2">
+        <i class="fas fa-money-bill-wave"></i>      </div>
+        <%= link_to 'All My Uncategorized Transactions', transactions_path, class: "d-inline-block w-100 text-white" %>
+    </div>
+
+    <div class="d-flex align-items-center mb-3 up-font">
+      <div class="icon-wrap p-2 rounded mr-2 up-font-2">
+        <i class="fas fa-layer-group"></i>      
+      </div>
+        <%= link_to 'Expense Categories', expenses_path, class: "d-inline-block w-100 text-white" %>
+    </div>
+  </div>
+</div>
