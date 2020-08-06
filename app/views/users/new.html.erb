@@ -1,2 +1,5 @@
-<h1>Create An Account</h1>
-<%= render 'form', user: @user %>
+<div class="background body-background">
+  <%= render 'form', user: @user %>
+
+  <%= link_to "Already have an account?", login_path, class: "text-center d-block mt-5 mid-font text-secondary" %>
+</div>
