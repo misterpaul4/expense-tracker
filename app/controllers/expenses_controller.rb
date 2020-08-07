@@ -10,6 +10,10 @@ class ExpensesController < ApplicationController
     @expense = Expense.new
   end
 
+  def show
+    @expenses = @expense.transactions.ordered_by_most_recent
+  end
+
   def edit
   end
 

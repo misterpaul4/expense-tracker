@@ -139,7 +139,14 @@ li {
   }
 
   .trasact-amount,
-  .report_stat {
+  .report_stat
+ {
     font-size: 0.7rem;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .total_expense-sm {
+    font-size: 0.6rem;
   }
 }

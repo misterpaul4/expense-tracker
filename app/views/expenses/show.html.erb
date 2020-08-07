@@ -1,0 +1,24 @@
+<div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between text-white">
+  <%= link_to expenses_path do %>
+  <%= image_tag ("icons/back.svg") %>
+  <% end %>
+  <span class="nav-header text-white text-capitalize"><%= @expense.name %></span>
+  <span> <%= link_to "Logout", logout_path, method: :delete, class: "text-light" %> </span>
+</div>
+
+<div>
+  <div class="bg-white p-3 report_stat">
+    <div class="d-flex justify-content-between">
+      <div>Total amount spent on <%= @expense.name %>:</div>
+      <div class="font-weight-bold text-danger"><%= amount(total_expenses(@expense)) %></div>
+    </div>
+  </div>
+</div>
+
+<div class="pb-5">
+  <% if @expenses.any? %>
+    <% @expenses.each do |transaction| %>
+      <%= render partial: 'transactions/transaction_card', :locals => { :transaction => transaction } %>
+    <% end %>
+  <% end %>
+<div class="mt-5"></div>

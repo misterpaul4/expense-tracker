@@ -18,9 +18,10 @@
             <span><%= date(expense.created_at) %></span> <!-- info -->
           </div>
         </div>
-        <div>
+        <div class="d-flex flex-column justify-content-between align-items-end">
           <div class="font-weight-bold trasact-amount"><%= transactions(expense) %> <i class="fas fa-flag"></i> <span class="ml-2"><%= average(expense) %> <i class="fas fa-percentage"></i> </span>
           </div> <!-- amount -->
+          <div class="total_expense-sm"><%= amount(total_expenses(expense)) %> <i class="fas fa-money-bill-alt"></i></div>
         </div>
       </div>
       <% end %>
@@ -28,4 +29,9 @@
       <% end %>
     <% end %>
   </div>
+
+  <div class="bottom-btn  secondary-color p-2">
+    <%= link_to 'ADD NEW CATEGORY', new_expense_path, class: "bottom-btn-link" %>
+  </div>
 </div>
+
