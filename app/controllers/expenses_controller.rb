@@ -29,7 +29,7 @@ class ExpensesController < ApplicationController
     @expense = current_user.expenses.build(expense_params)
 
     if @expense.save
-      redirect_to transactions_path, notice: 'new category added.'
+      redirect_to request.referer, notice: 'new category added.'
     else
       render :new
     end
