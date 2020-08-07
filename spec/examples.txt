@@ -1,0 +1,19 @@
+example_id                                | status | run_time        |
+----------------------------------------- | ------ | --------------- |
+./spec/feature/login_spec.rb[1:1:1]       | passed | 0.52764 seconds |
+./spec/feature/transaction_spec.rb[1:1:1] | passed | 0.13594 seconds |
+./spec/model/expense_spec.rb[1:1:1]       | passed | 0.0031 seconds  |
+./spec/model/expense_spec.rb[1:1:2]       | passed | 0.00218 seconds |
+./spec/model/expense_spec.rb[1:2:1]       | passed | 0.00708 seconds |
+./spec/model/expense_spec.rb[1:2:2]       | passed | 0.1234 seconds  |
+./spec/model/expense_spec.rb[1:2:3]       | passed | 0.00506 seconds |
+./spec/model/transaction_spec.rb[1:1:1]   | passed | 0.00561 seconds |
+./spec/model/transaction_spec.rb[1:2:1]   | passed | 0.0547 seconds  |
+./spec/model/transaction_spec.rb[1:2:2]   | passed | 0.00679 seconds |
+./spec/model/transaction_spec.rb[1:2:3]   | passed | 0.00528 seconds |
+./spec/model/user_spec.rb[1:1:1]          | passed | 0.00098 seconds |
+./spec/model/user_spec.rb[1:1:2]          | passed | 0.00138 seconds |
+./spec/model/user_spec.rb[1:1:3]          | passed | 0.00104 seconds |
+./spec/model/user_spec.rb[1:2:1]          | passed | 0.00977 seconds |
+./spec/model/user_spec.rb[1:2:2]          | passed | 0.00889 seconds |
+./spec/model/user_spec.rb[1:2:3]          | passed | 0.015 seconds   |
