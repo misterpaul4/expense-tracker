@@ -8,9 +8,7 @@ class UsersController < ApplicationController
 
   def edit; end
 
-  def profile
-    @user = User.find_by(params[:username])
-  end
+  def profile; end
 
   def update
     if @user.update(user_params)

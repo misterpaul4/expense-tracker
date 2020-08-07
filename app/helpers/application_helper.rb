@@ -1,6 +1,6 @@
 module ApplicationHelper
   def amount(item)
-    number_to_currency(item, unit: current_user.currency + ' ')
+    number_to_currency(item, unit: current_user.currency.to_s + ' ')
   end
 
   def balance
