@@ -1,10 +1,10 @@
 <%= simple_form_for @user, class: "w-100" do |f| %>
   <div class="primary-color pt-4 pb-2 px-3 d-flex justify-content-between align-items-center">
-    <%= link_to welcome_path do %>
+    <%= link_to url_for(:back) do %>
     <%= image_tag ("icons/back.svg") %>
     <% end %>
 
-    <span class="nav-header text-white">SIGNUP</span>
+    <span class="nav-header text-white"><%= action %></span>
 
     <%= f.submit 'Next', class: "submit-btn text-light" %>
   </div>
