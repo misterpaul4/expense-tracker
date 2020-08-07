@@ -1,7 +1,9 @@
 <div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between border-bottom border-light">
   <%= link_to 'Profile', root_path, class: "text-light" %>
   <span class="nav-header text-white">EXPENSES</span>
-  <span> <%= link_to "Logout", logout_path, method: :delete, class: "text-light" %> </span>
+  <%= link_to logout_path, method: :delete do %>
+  <span class="text-light">Logout (<%= current_user.username %>)</span>
+  <% end %>
 </div>
 
 <div class="background primary-color d-flex justify-content-center align-items-sm-center text-white">

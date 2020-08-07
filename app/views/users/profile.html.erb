@@ -1,6 +1,8 @@
 <div class="primary-color text-center position-relative py-3 text-light border-bottom border-light">
   <span class="text-light font-weight-bold up-font">PROFILE</span>
-  <%= link_to 'logout', logout_path, class: "position-absolute move-right text-light" %>
+  <%= link_to logout_path, method: :delete do %>
+  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
+  <% end %>
 </div>
 
 <div class="background primary-color d-flex justify-content-center align-items-center text-white">
@@ -27,7 +29,7 @@
 
     <div class="d-flex align-items-center mb-3 up-font">
       <div class="icon-wrap p-2 rounded mr-2 up-font-2">
-        <i class="fas fa-layer-group"></i>      
+        <i class="fas fa-layer-group"></i>
       </div>
         <%= link_to 'Expense Categories', expenses_path, class: "d-inline-block w-100 text-white" %>
     </div>

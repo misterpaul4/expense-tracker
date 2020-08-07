@@ -1,16 +1,25 @@
+<%= simple_form_for@transaction, class: "w-100" do |f| %>
+  <div class="primary-color pt-4 pb-2 px-3 d-flex justify-content-between align-items-center">
+    <%= link_to transactions_path do %>
+    <%= image_tag ("icons/back.svg") %>
+    <% end %>
 
-<%= simple_form_for(@transaction) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <span class="nav-header text-white">NEW TRANSACTION</span>
 
-  <div class="form-inputs">
-    <%= f.input :amount %>
-    <%= f.input :description, label: 'Note' %>
-    <%= f.input :expense_id, label: 'Category', collection: @categories %>
-    <%= link_to 'New Category', new_expense_path %>
+    <%= f.submit 'Create', class: "submit-btn text-light" %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-inputs">
+    <%= f.input :amount, placeholder: "Amount", :input_html => {value: number_with_precision(f.object.amount, precision: 2), class: "w-100 px-3 py-3 mt-2 border-0 mid-font" }, label: false  %>
+    <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
+    <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">
+      <div>Category: </div>
+      <%= f.input :expense_id, collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
+    </div>
+    <span class="text-right d-block pr-3 pt-2">select category from dropdown</span>
+    <%= link_to new_expense_path, class:"float-right pr-3 pt-2" do %>
+      <%= image_tag ("icons/plus.svg") %>
+      New Category 
+    <% end %>
   </div>
 <% end %>

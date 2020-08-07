@@ -1,7 +1,9 @@
 <div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between">
   <%= link_to 'Profile', root_path, class: "text-light" %>
   <span class="nav-header text-white">TRANSACTIONS</span>
-  <span> <%= link_to "Logout", logout_path, method: :delete, class: "text-light" %> </span>
+  <%= link_to logout_path, method: :delete do %>
+  <span class="text-light">Logout (<%= current_user.username %>)</span>
+  <% end %>
 </div>
 
 <div class="primary-color text-center position-relative py-3 text-light">
