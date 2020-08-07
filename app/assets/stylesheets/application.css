@@ -21,11 +21,11 @@
 }
 
 .primary-color {
-  background: var(--blue-color)
+  background: var(--blue-color);
 }
 
 .secondary-color {
-  background: var(--green-color)
+  background: var(--green-color);
 }
 
 .body-background {
@@ -60,6 +60,11 @@ body {
   background: #f0f0f0;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 img {
   object-fit: cover;
 }
@@ -80,7 +85,7 @@ img {
 }
 
 .login {
-  background: var(--blue-color)
+  background: var(--blue-color);
 }
 
 .card-details {
@@ -94,7 +99,7 @@ img {
 .icon-box {
   min-width: 64px;
   height: 64px;
-  background: var(--black-color)
+  background: var(--black-color);
 }
 
 .submit-btn {
@@ -104,8 +109,7 @@ img {
 
 .up-font,
 .bottom-btn,
-.report_stat
- {
+.report_stat {
   font-size: 1rem;
 }
 
@@ -139,8 +143,7 @@ li {
   }
 
   .trasact-amount,
-  .report_stat
- {
+  .report_stat {
     font-size: 0.7rem;
   }
 }

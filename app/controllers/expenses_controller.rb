@@ -14,8 +14,7 @@ class ExpensesController < ApplicationController
     @expenses = @expense.transactions.ordered_by_most_recent
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @expense.update(expense_params)
@@ -29,7 +28,7 @@ class ExpensesController < ApplicationController
     @expense = current_user.expenses.build(expense_params)
 
     if @expense.save
-      redirect_to request.referer, notice: 'new category added.'
+      redirect_to expenses_path, notice: 'new category added.'
     else
       render :new
     end

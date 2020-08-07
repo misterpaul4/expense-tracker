@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
   end
 
   # GET /transactions/1/edit
-  def edit;
+  def edit
     @categories = current_user.expenses
   end
 

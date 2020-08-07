@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
-  def new;
+  def new
     @user = login_path
   end
 
-  def welcome
-  end
+  def welcome; end
 
   def create
     user = User.find_by(username: params[:username])

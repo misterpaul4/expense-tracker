@@ -13,13 +13,11 @@
   </head>
 
   <body>
-    <nav>
-    </nav>
     <% if notice.present? %>
-      <p> <%= notice %> </p>
+      <p class="text-center"> <%= notice %> </p>
     <% end %>
     <% if alert.present? %>
-      <p> <%= alert %> </p>
+      <p class="text-center"> <%= alert %> </p>
     <% end %>
     <%= yield %>
   </body>
