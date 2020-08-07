@@ -1,0 +1,9 @@
+<div class="pb-5">
+  <%= render 'transactions' %>
+  <% if @transactions.any? %>
+    <% @transactions.each do |transaction| %>
+      <%= render partial: 'transaction_card', :locals => { :transaction => transaction } %>
+    <% end %>
+  <% end %>
+</div>
+<div class="mt-5"></div>

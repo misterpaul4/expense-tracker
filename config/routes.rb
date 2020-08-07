@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[index create destroy edit update]
   get 'signup', to: 'users#new', as: 'signup'
   get 'transactions_sort', to: 'transactions#index_sort', as: 'sort_transactions'
+  get 'sort_external_transactions', to: 'transactions#external_index_sort', as: 'sort_external_transactions'
+  get 'external_transactions', to: 'transactions#external_index', as: 'external_transactions'
   get 'welcome', to: 'sessions#welcome'
 
   get 'login', to: 'sessions#new', as: 'login'

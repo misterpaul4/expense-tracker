@@ -10,14 +10,14 @@
 </div>
 
 <div>
-  <div class="bg-white p-3 up-font">
+  <div class="bg-white p-3 report_stat">
     <% if !!current_user.budget %>
     <div class="d-flex justify-content-between">
       <div>Initial budget:</div>
       <div class="font-weight-bold text-success" ><%= amount(current_user.budget) %></div>
     </div>
 
-    <div class="d-flex justify-content-between my-2">
+    <div class="d-flex justify-content-between my-1">
       <div>Balance:</div>
       <div class="font-weight-bold text-primary"><%= balance %></div>
     </div>
@@ -26,6 +26,11 @@
     <div class="d-flex justify-content-between">
       <div>Total expenses:</div>
       <div class="font-weight-bold text-danger"><%= amount(total_expenses(current_user)) %></div>
+    </div>
+
+    <div class="d-flex justify-content-between mt-1">
+      <div>Total external expenses:</div>
+      <div class="font-weight-bold text-danger"><%= amount(total_external_expenses(current_user)) %></div>
     </div>
   </div>
 </div>

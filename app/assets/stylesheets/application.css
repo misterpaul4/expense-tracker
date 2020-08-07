@@ -103,7 +103,9 @@ img {
 }
 
 .up-font,
-.bottom-btn {
+.bottom-btn,
+.report_stat
+ {
   font-size: 1rem;
 }
 
@@ -136,7 +138,8 @@ li {
     width: 300px;
   }
 
-  .trasact-amount {
+  .trasact-amount,
+  .report_stat {
     font-size: 0.7rem;
   }
 }

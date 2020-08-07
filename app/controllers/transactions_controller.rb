@@ -8,8 +8,16 @@ class TransactionsController < ApplicationController
     @transactions = current_user.transactions.ordered_by_most_recent
   end
 
+  def external_index
+    @transactions = current_user.external_transactions.ordered_by_most_recent
+  end
+
   def index_sort
     @transactions = current_user.transactions
+  end
+
+  def external_index_sort
+    @transactions = current_user.external_transactions
   end
 
   # GET /transactions/1
