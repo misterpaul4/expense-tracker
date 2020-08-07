@@ -1,29 +1,31 @@
-<h1>Expense Categories</h1>
+<div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between border-bottom border-light">
+  <%= link_to 'Profile', root_path, class: "text-light" %>
+  <span class="nav-header text-white">EXPENSES</span>
+  <span> <%= link_to "Logout", logout_path, method: :delete, class: "text-light" %> </span>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th>owner</th>
-      <th>sum of transactions</th>
-      <th>number of transactions</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @expenses.each do |expense| %>
-      <tr>
-        <td><%= expense.name %></td>
-        <td><%= expense.user_id %>
-        <td><%= amount(total_expenses(expense)) %></td>
-        <td><%= expense.transactions.count %></td>
-        <td><%= link_to 'Show', expense %></td>
-        <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
-        <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="background primary-color d-flex justify-content-center align-items-sm-center text-white">
+  <div class="w-sm-50 w-100">
+    <% if @expenses.any? %>
+      <% @expenses.each do |expense| %>
+      <div class="container">
+      <%= link_to expense do %>
+      <div class="d-flex my-3 justify-content-between bg-white p-sm-3 p-2">
+        <div class="d-flex card-details align-items-center"> <!-- icon and info -->
+          <div class="icon-box mr-sm-3 mr-2"></div> <!-- icon -->
+          <div class="d-flex flex-column justify-content-between">
+            <p class="font-weight-bold up-font"><%= expense.name %></p>
+            <span><%= date(expense.created_at) %></span> <!-- info -->
+          </div>
+        </div>
+        <div>
+          <div class="font-weight-bold trasact-amount"><%= transactions(expense) %> <i class="fas fa-flag"></i> <span class="ml-2"><%= average(expense) %> <i class="fas fa-percentage"></i> </span>
+          </div> <!-- amount -->
+        </div>
+      </div>
+      <% end %>
+      </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Category', new_expense_path %>
+  </div>
+</div>

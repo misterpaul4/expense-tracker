@@ -3,7 +3,7 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show edit update destroy]
 
   def index
-    @expenses = current_user.expenses
+    @expenses = current_user.expenses.sort_alphabetically
   end
 
   def new
