@@ -14,6 +14,12 @@ class ExpensesController < ApplicationController
     @expenses = @expense.transactions.ordered_by_most_recent
   end
 
+  def icon
+    @expense = Expense.new
+    @expense.icon = params[:icon]
+    render :new
+  end
+
   def edit; end
 
   def update

@@ -10,6 +10,5 @@
 </div>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :name, placeholder: "Name",label: false , input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>    
-  <%= f.input :icon, placeholder: "Icon url",label: false , input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>  
+  <%= f.input :name, placeholder: "Name",label: false , input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>      
 <% end %>
