@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+window.setTimeout("closebox();", 3000);
+
+function closebox(){
+document.getElementById("flash-message").style.display=" none";
+}
