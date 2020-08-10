@@ -101,9 +101,8 @@ img {
 }
 
 .icon-box {
-  min-width: 64px;
-  height: 64px;
-  background: var(--black-color);
+  min-width: 30px;
+  height: 30px;
 }
 
 .submit-btn {

@@ -33,8 +33,11 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to users_path, notice: 'account deleted.'
+    if @user.destroy
+      redirect_to welcome_path, notice: 'account deleted.'
+    else
+      redirect_to edit_user_path, alert: 'cannot delete account, try again.'
+    end
   end
 
   private

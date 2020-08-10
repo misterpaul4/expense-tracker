@@ -1,18 +1,16 @@
 <div class="d-flex flex-column align-items-center">
-  <% if @expense.icon.present? %>
-    <h4 class="my-3"> icon </h4><%= image_tag ("icons/categories/#{@expense.icon}") %>
-  <% else %>
-    <h2> icon </h2><%= image_tag ("icons/categories/1.svg"), class: "my-2" %>
-  <% end %>
+  <div class="text-center mt-3">
+    <h4>icon</h4>
+    <%= image_tag (icon_selected) %>
+  </div>
 
   <h4 class="mt-5 mb-3">select an icon</h4>
   <div class="d-flex flex-wrap justify-content-center px-3">
-    <% Dir.foreach('./app/assets/images/icons/categories') do |img| %>
+    <% Dir.foreach(@icon_dir) do |img| %>
     <% next if img == '.' or img == '..' %>
     <%= link_to icon_path(icon: img) do %>
       <% image_tag ("icons/categories/#{img}"), class: "icon-img p-3 m-3" %>
     <% end %>
-    <div class="space"></div>
     <% end %>
   </div>
   </div>

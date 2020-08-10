@@ -1,2 +1,2 @@
 <%= render partial: 'form', :locals => { :action => 'EDIT PROFILE', :form_action => 'Save' } %>
-
+<%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>

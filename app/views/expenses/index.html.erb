@@ -14,7 +14,7 @@
       <%= link_to expense do %>
       <div class="d-flex my-3 justify-content-between bg-white p-sm-3 p-2">
         <div class="d-flex card-details align-items-center"> <!-- icon and info -->
-          <div class="icon-box mr-sm-3 mr-2"></div> <!-- icon -->
+          <%= image_tag ("icons/categories/#{expense.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
           <div class="d-flex flex-column justify-content-between">
             <p class="font-weight-bold up-font"><%= expense.name %></p>
             <span><%= date(expense.created_at) %></span> <!-- info -->

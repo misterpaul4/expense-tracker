@@ -27,7 +27,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @categories = current_user.expenses
+    @categories = current_user.expenses.sort_alphabetically
   end
 
   # GET /transactions/1/edit

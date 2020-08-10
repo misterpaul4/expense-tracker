@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    @icon_dir = './app/assets/images/icons/categories'
   end
 
   def show
@@ -16,6 +17,7 @@ class ExpensesController < ApplicationController
 
   def icon
     @expense = Expense.new
+    @icon_dir = './app/assets/images/icons/categories'
     @expense.icon = params[:icon]
     render :new
   end
@@ -41,8 +43,11 @@ class ExpensesController < ApplicationController
   end
 
   def destroy
-    @expense.destroy
-    redirect_to expenses_path, alert: 'expense category and related transactions removed'
+    if @expense.destroy
+      redirect_to expenses_path, notice: 'transaction category and related transactions removed'
+    else
+      render :edit, alert: 'cannot delete this category, try again.'
+    end
   end
 
   private
