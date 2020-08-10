@@ -28,6 +28,10 @@
   background: var(--green-color);
 }
 
+.action-icon {
+  width: 1.1em;
+}
+
 .body-background {
   background: #f0f0f0;
 }
