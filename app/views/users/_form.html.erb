@@ -1,13 +1,10 @@
 <%= simple_form_for @user, class: "w-100" do |f| %>
-  <div class="primary-color pt-4 pb-2 px-3 d-flex justify-content-between align-items-center">
-    <%= link_to url_for(:back) do %>
-    <%= image_tag ("icons/back.svg") %>
-    <% end %>
-
-    <span class="nav-header text-white"><%= action %></span>
-
-    <%= f.submit form_action, class: "submit-btn text-light" %>
+  <div class="primary-color text-center position-relative py-3 text-light">
+    <%= link_to destination, root_path, class: "position-absolute move-left text-light" %>
+    <span class="text-light font-weight-bold up-font centered-text"><%= action %></span>
+    <%= f.submit form_action, class: "position-absolute move-right text-light submit-btn" %>
   </div>
+
   <%= f.input :username, placeholder: "Username", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
   <%= f.input :budget, placeholder: "Initial Budget", :input_html => {value: number_with_precision(f.object.budget, precision: 2), class: "w-100 px-3 py-3 mt-2 border-0 mid-font" }, label: false %>
   <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">

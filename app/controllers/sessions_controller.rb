@@ -11,7 +11,11 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: 'Logged in!'
     else
-      flash.now[:alert] = 'Username not registered! try again or create an account'
+      if params[:username].empty?
+        flash.now[:alert] = 'Username cannot be empty, try again'
+      else
+        flash.now[:alert] = 'Username not registered! try again or create an account'
+      end
       render 'new'
     end
   end

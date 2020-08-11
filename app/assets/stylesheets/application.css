@@ -136,8 +136,18 @@ img {
   right: 1em;
 }
 
+.move-left {
+  left: 1em;
+}
+
 li {
   list-style: none;
+}
+
+.delete-act-btn {
+  color: #dc3545;
+  text-align: center;
+  background: lightgray;
 }
 
 @media all and (max-width: 768px) {
@@ -156,7 +166,13 @@ li {
 }
 
 @media all and (max-width: 450px) {
-  .total_expense-sm {
+  .total_expense-sm,
+  .move-right,
+  .move-left {
     font-size: 0.6rem;
+  }
+
+  .centered-text {
+    font-size: 0.8rem;
   }
 }

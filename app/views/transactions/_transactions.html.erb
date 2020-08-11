@@ -1,13 +1,13 @@
-<div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between">
-  <%= link_to 'Profile', root_path, class: "text-light" %>
-  <span class="nav-header text-white">TRANSACTIONS</span>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Profile', root_path, class: "position-absolute move-left text-light" %>
+  <span class="text-light font-weight-bold up-font centered-text">TRANSACTIONS</span>
   <%= link_to logout_path, method: :delete do %>
-  <span class="text-light">Logout (<%= current_user.username %>)</span>
+  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
   <% end %>
 </div>
 
 <div class="primary-color text-center position-relative py-3 text-light">
-  <%= link_to active_link, active_link_path, class: "text-light font-weight-bold up-font" %>
+  <%= link_to active_link, active_link_path, class: "text-light font-weight-bold up-font centered-text" %>
   <%= link_to inactive_link, inactive_link_path, class: "position-absolute move-right text-light" %>
 </div>
 
