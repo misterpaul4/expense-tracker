@@ -1,9 +1,11 @@
-<div class="primary-color w-100 pt-4 pb-2 px-3 d-flex justify-content-between text-white">
-  <%= link_to expenses_path do %>
-  <%= image_tag ("icons/back.svg") %>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Back', expenses_path, class: "position-absolute move-left text-light" %>
+
+  <span class="text-light font-weight-bold up-font centered-text"><%= @expense.name %></span>
+
+  <%= link_to logout_path, method: :delete do %>
+  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
   <% end %>
-  <span class="nav-header text-white text-capitalize"><%= @expense.name %></span>
-  <span> <%= link_to "Logout", logout_path, method: :delete, class: "text-light" %> </span>
 </div>
 
 <div>
@@ -14,6 +16,8 @@
     </div>
   </div>
 </div>
+
+<h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
 
 <div class="pb-5">
   <% if @expenses.any? %>

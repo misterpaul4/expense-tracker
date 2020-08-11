@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_user
   before_action :set_expense, only: %i[show edit update destroy]
+  helper_method :icon_dir
 
   def index
     @expenses = current_user.expenses.sort_alphabetically
@@ -8,21 +9,24 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
-    @icon_dir = './app/assets/images/icons/categories'
   end
 
   def show
     @expenses = @expense.transactions.ordered_by_most_recent
   end
 
+  def icon_dir
+    './app/assets/images/icons/categories'
+  end
+
   def icon
     @expense = Expense.new
-    @icon_dir = './app/assets/images/icons/categories'
     @expense.icon = params[:icon]
     render :new
   end
 
-  def edit; end
+  def edit;
+  end
 
   def update
     if @expense.update(expense_params)

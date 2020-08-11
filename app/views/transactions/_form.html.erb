@@ -1,13 +1,10 @@
 <%= simple_form_for @transaction, class: "w-100" do |f| %>
-  <div class="primary-color pt-4 pb-2 px-3 d-flex justify-content-between align-items-center">
-    <%= link_to url_for(:back) do %>
-    <%= image_tag ("icons/back.svg") %>
-    <% end %>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Back', transactions_path, class: "position-absolute move-left text-light" %>
+  <span class="text-light font-weight-bold up-font centered-text"><%= title %></span>
+  <%= f.submit form_action, class: "position-absolute move-right text-light submit-btn" %>
+</div>
 
-    <span class="nav-header text-white"><%= title %></span>
-
-    <%= f.submit 'Create', class: "submit-btn text-light" %>
-  </div>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -21,7 +18,7 @@
     <span class="text-right d-block pr-3 pt-2">select category from dropdown</span>
     <%= link_to new_expense_path, class:"float-right pr-3 pt-2" do %>
       <%= image_tag ("icons/plus.svg") %>
-      New Category 
+      New Category
     <% end %>
   </div>
 <% end %>

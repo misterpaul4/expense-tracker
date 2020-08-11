@@ -6,7 +6,7 @@
 
   <h4 class="mt-5 mb-3">select an icon</h4>
   <div class="d-flex flex-wrap justify-content-center px-3">
-    <% Dir.foreach(@icon_dir) do |img| %>
+    <% Dir.foreach(icon_dir) do |img| %>
     <% next if img == '.' or img == '..' %>
     <%= link_to icon_path(icon: img) do %>
       <% image_tag ("icons/categories/#{img}"), class: "icon-img p-3 m-3" %>
