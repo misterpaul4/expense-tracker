@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new
+    @expense = Expense.new(icon: "15.svg")
   end
 
   def show
@@ -22,7 +22,7 @@ class ExpensesController < ApplicationController
   def icon
     @expense = Expense.new
     @expense.icon = params[:icon]
-    render :new
+    render 'new'
   end
 
   def edit;

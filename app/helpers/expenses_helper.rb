@@ -15,10 +15,16 @@ module ExpensesHelper
       icon = icon + "15.svg"
     end
 
-    icon 
+    icon
   end
 
   def icons
+    collection = []
+    Dir.foreach(icon_dir) do |img|
+      next if img == '.' or img == '..'
+      collection.push([image_tag("icons/categories/#{img}"), img])
+    end
 
+    collection
   end
 end

@@ -28,6 +28,28 @@
   background: var(--green-color);
 }
 
+.radio-off {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.icons span label img {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.icons span {
+  padding: 10px;
+}
+
+.icons .input {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem;
+}
+
 .action-icon {
   width: 1.1em;
 }
