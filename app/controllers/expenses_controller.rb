@@ -16,13 +16,7 @@ class ExpensesController < ApplicationController
   end
 
   def icon_dir
-    './app/assets/images/icons/categories'
-  end
-
-  def icon
-    @expense = Expense.new
-    @expense.icon = params[:icon]
-    render 'new'
+    './app/assets/images/icons/categories/'
   end
 
   def edit;

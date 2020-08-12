@@ -50,6 +50,10 @@
   margin: 2rem;
 }
 
+[id^=expense_icon]:checked + img {
+  background: grey;
+}
+
 .action-icon {
   width: 1.1em;
 }
@@ -64,7 +68,7 @@
 
 a:hover {
   text-decoration: none;
-  color: initial;  
+  color: initial;
 }
 
 .bottom-btn {

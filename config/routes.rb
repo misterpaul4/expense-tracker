@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   root 'users#profile'
 
   resources :users, only: %i[index create destroy edit update]
-  get 'icon', to: 'expenses#icon', as: 'icon'
   get 'signup', to: 'users#new', as: 'signup'
   get 'transactions_sort', to: 'transactions#index_sort', as: 'sort_transactions'
   get 'sort_external_transactions', to: 'transactions#external_index_sort', as: 'sort_external_transactions'
