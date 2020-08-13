@@ -176,10 +176,6 @@ li {
   background: lightgray;
 }
 
-.card-box:hover {
-  transform: scale(1.01);
-}
-
 @media all and (max-width: 768px) {
   .reg-btn {
     width: 100%;

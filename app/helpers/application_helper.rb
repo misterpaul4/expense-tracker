@@ -10,4 +10,13 @@ module ApplicationHelper
   def date(day)
     day.to_formatted_s(:long)
   end
+
+  def select_icon(transaction)
+    category = transaction.expense
+    unless category.nil?
+      category.icon
+    else
+      "404.svg"
+    end
+  end
 end

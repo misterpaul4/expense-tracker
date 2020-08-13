@@ -1,7 +1,10 @@
 <div class="primary-color text-center position-relative py-3 text-light">
   <%= link_to 'Back', expenses_path, class: "position-absolute move-left text-light" %>
 
-  <span class="text-light font-weight-bold up-font centered-text"><%= @expense.name %></span>
+  <%= link_to edit_expense_path(@expense), class: "text-light font-weight-bold up-font centered-text" do %>
+    <%= @expense.name %>
+    <%= image_tag ("icons/edit2.svg"), class: "action-icon" %>
+  <% end %>
 
   <%= link_to logout_path, method: :delete do %>
   <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>

@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
 
   def external_index
     @transactions = current_user.external_transactions.ordered_by_most_recent
+    @icon = "404.svg"
   end
 
   def index_sort
@@ -18,6 +19,7 @@ class TransactionsController < ApplicationController
 
   def external_index_sort
     @transactions = current_user.external_transactions
+    @icon = "404.svg"
   end
 
   # GET /transactions/1
@@ -32,7 +34,7 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1/edit
   def edit
-    @categories = current_user.expenses
+    @categories = current_user.expenses.sort_alphabetically
   end
 
   # POST /transactions
