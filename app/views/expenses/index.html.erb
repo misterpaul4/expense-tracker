@@ -1,39 +1,38 @@
-<div class="primary-color text-center position-relative py-3 text-light border-bottom border-light">
-  <%= link_to 'Profile', root_path, class: "position-absolute move-left text-light" %>
-  <span class="text-light font-weight-bold up-font centered-text">EXPENSES</span>
-  <%= link_to logout_path, method: :delete do %>
-  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
-  <% end %>
-</div>
-
-<div class="primary-color d-flex justify-content-center text-white pb-5 mb-5 h-100">
-  <div class="w-sm-50 w-100 expense_card_cover primary-color">
-    <% if @expenses.any? %>
-      <% @expenses.each do |expense| %>
-      <div class="container">
-      <%= link_to expense do %>
-      <div class="d-flex my-3 justify-content-between bg-white p-sm-3 p-2 card-box">
-        <div class="d-flex card-details align-items-center"> <!-- icon and info -->
-          <%= image_tag ("icons/categories/#{expense.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
-          <div class="d-flex flex-column justify-content-between">
-            <p class="font-weight-bold up-font"><%= expense.name %></p>
-            <span><i class="far fa-user"></i> <%= expense.user.username %><br><%= date(expense.created_at) %></span> <!-- info -->
-          </div>
-        </div>
-        <div class="d-flex flex-column justify-content-between align-items-end">
-          <div class="font-weight-bold trasact-amount"><%= transactions(expense) %> <i class="fas fa-flag"></i> <span class="ml-2"><%= average(expense) %> <i class="fas fa-percentage"></i> </span>
-          </div> <!-- amount -->
-          <div class="total_expense-sm"><%= amount(total_expenses(expense)) %> <i class="fas fa-money-bill-alt"></i></div>
-        </div>
-      </div>
-      <% end %>
-      </div>
-      <% end %>
+<div class="h-100 primary-color">
+  <div class="text-center position-relative py-3 text-light border-bottom border-light">
+    <%= link_to 'Profile', root_path, class: "position-absolute move-left text-light" %>
+    <span class="text-light font-weight-bold up-font centered-text">EXPENSES</span>
+    <%= link_to logout_path, method: :delete do %>
+    <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
     <% end %>
   </div>
 
-  <div class="bottom-btn  secondary-color p-2">
-    <%= link_to 'ADD NEW CATEGORY', new_expense_path, class: "bottom-btn-link" %>
+  <div class="grid-centered primary-color grid-bg">
+    <div class="grid-centered-item">
+
+      <% if @expenses.any? %>
+      <div class="d-flex flex-column">
+        <% @expenses.each do |expense| %>
+        <%= link_to expense do %>
+        <div class="d-flex my-2 justify-content-between bg-white p-sm-3 p-2 card-box">
+          <div class="d-flex card-details align-items-center"> <!-- icon and info -->
+            <%= image_tag ("icons/categories/#{expense.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
+            <div class="d-flex flex-column justify-content-between">
+              <p class="font-weight-bold up-font"><%= expense.name %></p>
+              <span><i class="far fa-user"></i> <%= expense.user.username %><br><%= date(expense.created_at) %></span> <!-- info -->
+            </div>
+          </div>
+
+          <div class="d-flex flex-column justify-content-between align-items-end">
+            <div class="font-weight-bold trasact-amount"><%= transactions(expense) %> <i class="fas fa-flag"></i> <span class="ml-1"><%= average(expense) %> <i class="fas fa-percentage"></i> </span>
+            </div> <!-- amount -->
+            <div class="total_expense-sm"><%= amount(total_expenses(expense)) %> <i class="fas fa-money-bill-alt"></i></div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-

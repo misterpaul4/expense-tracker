@@ -20,12 +20,17 @@
   </div>
 </div>
 
-<h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
-
 <div class="pb-5">
   <% if @expenses.any? %>
+  <h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
     <% @expenses.each do |transaction| %>
       <%= render partial: 'transactions/transaction_card', :locals => { :transaction => transaction } %>
     <% end %>
+
+  <% else %>
+  <h4 class="text-center mt-5
+  ">No Transactions Recorded</h4>
   <% end %>
 <div class="mt-5"></div>
+
+

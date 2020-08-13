@@ -30,12 +30,16 @@
   width: 150px;
 }
 
-.grid-centered-item i {
+.trans-card i {
   width: 25px;
 }
 
 .primary-color {
   background: var(--blue-color);
+}
+
+.grid-bg {
+  min-height: 75%;
 }
 
 .secondary-color {

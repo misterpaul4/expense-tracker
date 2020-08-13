@@ -14,7 +14,7 @@
     <%= image_tag ("profile.svg"), class: "profile-photo" %>
     <span class="up-font-2 pt-2"><%= current_user.username %></span>
 
-    <div class="d-flex flex-column up-font pt-3">
+    <div class="d-flex flex-column up-font pt-3 trans-card">
       <div class="mt-3">
         <i class="fas fa-cogs"></i>
         <%= link_to 'Profile Settings', edit_user_path(current_user), class: "text-light" %>
