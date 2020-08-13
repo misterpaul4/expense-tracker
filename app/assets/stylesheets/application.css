@@ -20,6 +20,20 @@
   --black-color: #434b54;
 }
 
+.grid-centered,
+.grid-centered-item {
+  display: grid;
+  place-items: center;
+}
+
+.profile-photo {
+  width: 150px;
+}
+
+.grid-centered-item i {
+  width: 25px;
+}
+
 .primary-color {
   background: var(--blue-color);
 }
@@ -32,6 +46,10 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+.font-up {
+  font-size: 1.2rem;
 }
 
 .icons span label img {

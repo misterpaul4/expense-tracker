@@ -14,6 +14,7 @@ module ExpensesHelper
       collection.push([image_tag("icons/categories/#{img}"), img])
     end
 
+    collection.pop
     collection
   end
 end
