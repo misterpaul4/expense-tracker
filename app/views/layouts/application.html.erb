@@ -14,10 +14,10 @@
 
   <body>
     <% if notice.present? %>
-      <div class="text-center bg-success text-light font-weight-bold py-2" id="flash-message"> <%= notice %> </div>
+      <div class="text-center bg-light text-dark py-1" id="flash-message"> <%= notice %> </div>
     <% end %>
     <% if alert.present? %>
-      <div class="text-center bg-danger text-light font-weight-bold py-2" id="flash-message"> <%= alert %> </div>
+      <div class="text-center bg-danger text-light py-1" id="flash-message"> <%= alert %> </div>
     <% end %>
     <%= yield %>
   </body>

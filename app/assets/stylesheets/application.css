@@ -100,6 +100,12 @@ a:hover {
   text-align: center;
 }
 
+.border-b {
+  border-bottom: 1px solid rgba(255, 255, 255, .3);
+  width: 220px;
+  display: inline-block;
+}
+
 .bottom-btn-link {
   border: 1px solid white;
   color: white;
