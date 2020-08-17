@@ -8,7 +8,7 @@ RSpec.describe Transaction, type: :feature do
   end
 
   context 'creating a transaction' do
-    it 'creates a transaction' do
+    it 'creates and transaction' do
       user = User.create(username: 'john')
       login(user)
       click_on 'All My Transactions'
