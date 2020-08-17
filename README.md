@@ -9,7 +9,7 @@
 - Bootstrap
 
 ## Live Demo
-
+[Check it out!](https://sleepy-earth-55330.herokuapp.com/)
 
 # Getting Started
 ## Installation
