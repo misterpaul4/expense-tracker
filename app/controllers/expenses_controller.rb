@@ -8,7 +8,7 @@ class ExpensesController < ApplicationController
   end
 
   def new
-    @expense = Expense.new(icon: "15.svg")
+    @expense = Expense.new(icon: '15.svg')
   end
 
   def show
@@ -19,8 +19,7 @@ class ExpensesController < ApplicationController
     './app/assets/images/icons/categories/'
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @expense.update(expense_params)

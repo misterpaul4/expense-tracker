@@ -13,10 +13,10 @@ module ApplicationHelper
 
   def select_icon(transaction)
     category = transaction.expense
-    unless category.nil?
-      category.icon
+    if category.nil?
+      '404.svg'
     else
-      "404.svg"
+      category.icon
     end
   end
 end

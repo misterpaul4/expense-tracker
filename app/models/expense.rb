@@ -8,5 +8,4 @@ class Expense < ApplicationRecord
   validates :icon, presence: true
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
-
 end
