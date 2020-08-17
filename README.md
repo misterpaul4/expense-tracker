@@ -12,12 +12,17 @@
 
 
 # Getting Started
+## Installation
 - clone the repository `git clone https://github.com/misterpaul4/expense-tracker`
 - install dependencies `bundle install`
+
+## Usage
 - migrate database `rails db:migrate`
 - start server `rails server`
 - open browser and run `localhost:3000`
-- to test, run `rspec` in your terminal
+
+## Test
+- run `rspec` in your terminal
 
 ## Authors
 👤 **Chukwuebuka Paul Ajuizeogu**
