@@ -52,6 +52,10 @@
   appearance: none;
 }
 
+img {
+  object-fit: cover;
+}
+
 .font-up {
   font-size: 1.2rem;
 }
@@ -101,7 +105,7 @@ a:hover {
 }
 
 .border-b {
-  border-bottom: 1px solid rgba(255, 255, 255, .3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: 220px;
   display: inline-block;
 }
@@ -125,10 +129,6 @@ body {
 html,
 body {
   height: 100%;
-}
-
-img {
-  object-fit: cover;
 }
 
 .logo {
