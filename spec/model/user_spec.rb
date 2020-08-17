@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe User, type: :model do
   context 'Associations' do
-    it { should have_many(:transactions).with_foreign_key('creator_id').class_name('Transaction') }
+    it { should have_many(:transactions).with_foreign_key('creator_id').class_name('Transaction').dependent(:destroy) }
     it { should have_many(:external_transactions).conditions(expense_id: nil).with_foreign_key('creator_id') }
-    it { should have_many(:expenses) }
+    it { should have_many(:expenses).dependent(:destroy) }
   end
 
   context 'Validations' do

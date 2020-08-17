@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Transaction, type: :model do
   context 'Associations' do
     it { should belong_to(:creator).class_name('User') }
+    it { should belong_to(:expense).optional }
   end
 
   context 'Validations' do

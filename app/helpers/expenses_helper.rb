@@ -11,10 +11,9 @@ module ExpensesHelper
     collection = []
     Dir.foreach(icon_dir) do |img|
       next if img == '.' or img == '..'
-      collection.push([image_tag("icons/categories/#{img}"), img])
+      collection.push([image_tag("icons/categories/#{img}"), img]) unless img.eql? "404.svg"
     end
 
-    collection.pop
     collection
   end
 end
