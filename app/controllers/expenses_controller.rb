@@ -4,7 +4,8 @@ class ExpensesController < ApplicationController
   helper_method :icon_dir
 
   def index
-    @expenses = current_user.expenses.sort_alphabetically
+    @expenses = current_user.expenses.order(name: :asc)
+    @expenses_size = @expenses.length > 1
   end
 
   def new

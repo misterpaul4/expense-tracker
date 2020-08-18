@@ -10,7 +10,7 @@
   <div class="grid-centered primary-color grid-bg">
     <div class="grid-centered-item">
 
-      <% if @expenses.any? %>
+      <% if @expenses.size %>
       <div class="d-flex flex-column">
         <% @expenses.each do |expense| %>
         <%= link_to expense do %>
