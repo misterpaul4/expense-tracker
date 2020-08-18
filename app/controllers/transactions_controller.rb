@@ -6,19 +6,23 @@ class TransactionsController < ApplicationController
   # GET /transactions.json
   def index
     @transactions = current_user.transactions.ordered_by_most_recent.includes([:expense])
+    @transactions_size = @transactions.size > 1
   end
 
   def external_index
     @transactions = current_user.external_transactions.ordered_by_most_recent.includes([:expense])
+    @transactions_size = @transactions.size > 1
     @icon = '404.svg'
   end
 
   def index_sort
     @transactions = current_user.transactions.includes([:expense])
+    @transactions_size = @transactions.size > 1
   end
 
   def external_index_sort
     @transactions = current_user.external_transactions.includes([:expense])
+    @transactions_size = @transactions.size > 1
     @icon = '404.svg'
   end
 

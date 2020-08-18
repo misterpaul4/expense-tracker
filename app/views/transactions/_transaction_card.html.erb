@@ -12,7 +12,7 @@
     <div class="font-weight-bold trasact-amount"><%= amount(transaction.amount) %></div> <!-- amount -->
     <div class="d-flex">
       <%= link_to edit_transaction_path(transaction) do %>
-        <%= image_tag ("icons/edit.svg"), class: "action-icon mr-2" %>
+        <%= image_tag ("icons/edit.svg"), class: "action-icon mr-3" %>
       <% end %>
 
       <%= link_to transaction, method: :delete, data: { confirm: 'Are you sure?' } do %>

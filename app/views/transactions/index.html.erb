@@ -1,6 +1,6 @@
 <div class="pb-5">
   <%= render partial: 'transactions', :locals => { :active_link => 'Most recent', :active_link_path => transactions_path, :inactive_link => 'Most ancient', :inactive_link_path => sort_transactions_path } %>
-  <% if @transactions.any? %>
+  <% if @transactions_size %>
     <% @transactions.each do |transaction| %>
       <%= render partial: 'transaction_card', :locals => { :transaction => transaction } %>
     <% end %>
