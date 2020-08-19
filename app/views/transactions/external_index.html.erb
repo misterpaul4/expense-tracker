@@ -1,5 +1,5 @@
 <div class="pb-5">
-  <%= render partial: 'transactions', :locals => { :active_link => 'Most recent', :active_link_path => external_transactions_path, :inactive_link => 'Most ancient', :inactive_link_path => sort_external_transactions_path } %>  
+  <%= render partial: 'external_transactions', :locals => { :active_link => 'Most recent', :active_link_path => external_transactions_path, :inactive_link => 'Most ancient', :inactive_link_path => sort_external_transactions_path } %>
 
   <% if @transactions.size %>
     <% @transactions.each do |transaction| %>

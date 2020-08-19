@@ -26,6 +26,10 @@ class TransactionsController < ApplicationController
     @icon = '404.svg'
   end
 
+  def new_external
+    @transaction = Transaction.new(expense_id: nil)
+  end
+
   # GET /transactions/1
   # GET /transactions/1.json
   def show; end
@@ -54,6 +58,15 @@ class TransactionsController < ApplicationController
         format.html { render :new }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def create_external
+    @transaction = current_user.transactions.build(transaction_params)
+    if @transaction.save
+      redirect_to external_transactions_path, notice: 'Transaction was successfully created.'
+    else
+      render :new_external
     end
   end
 
