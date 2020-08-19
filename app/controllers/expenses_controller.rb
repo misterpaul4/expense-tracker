@@ -5,15 +5,21 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses.order(name: :asc)
-    @expenses_size = @expenses.length > 1
+    @expenses_size = !@expenses.empty?
   end
 
   def new
     @expense = Expense.new(icon: '15.svg')
   end
 
+  def new_transaction
+    set_expense
+    @transaction = Transaction.new(expense_id: @expense.id)
+  end
+
   def show
     @expenses = @expense.transactions.ordered_by_most_recent
+    @expenses_size = !@expenses.empty?
   end
 
   def icon_dir
@@ -40,6 +46,16 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def create_transaction
+    @transaction = current_user.transactions.build(transaction_params)
+    @expense = Expense.find(@transaction.expense_id)
+    if @transaction.save
+      redirect_to @expense, notice: 'Transaction was successfully created.'
+    else
+      render :new_transaction
+    end
+  end
+
   def destroy
     if @expense.destroy
       redirect_to expenses_path, notice: 'transaction category and related transactions removed'
@@ -56,5 +72,9 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:name, :icon)
+  end
+
+  def transaction_params
+    params.require(:transaction).permit(:amount, :description, :expense_id)
   end
 end

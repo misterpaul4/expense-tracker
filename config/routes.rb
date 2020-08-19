@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'external_transactions', to: 'transactions#external_index', as: 'external_transactions'
   get 'external_transactions/new', to: 'transactions#new_external', as: 'new_external_transaction'
   post 'external_transactions/new', to: 'transactions#create_external'
+  get 'expenses/(:id)/new', to: 'expenses#new_transaction', as: 'new_categorized_transaction'
+  post 'expenses/(:id)/new', to: 'expenses#create_transaction', as: 'create_categorized_transaction'
+
   get 'welcome', to: 'sessions#welcome'
 
   get 'login', to: 'sessions#new', as: 'login'
