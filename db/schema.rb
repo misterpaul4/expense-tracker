@@ -10,32 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_804_002_846) do
-  create_table 'expenses', force: :cascade do |t|
-    t.string 'name'
-    t.string 'icon'
-    t.integer 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['user_id'], name: 'index_expenses_on_user_id'
+ActiveRecord::Schema.define(version: 2020_08_21_145721) do
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_expenses_on_user_id"
   end
 
-  create_table 'transactions', force: :cascade do |t|
-    t.decimal 'amount', precision: 18, scale: 2
-    t.text 'description'
-    t.integer 'creator_id'
-    t.integer 'expense_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['creator_id'], name: 'index_transactions_on_creator_id'
-    t.index ['expense_id'], name: 'index_transactions_on_expense_id'
+  create_table "expenses_transactions", id: false, force: :cascade do |t|
+    t.bigint "expense_id"
+    t.bigint "transaction_id"
+    t.index ["expense_id"], name: "index_expenses_transactions_on_expense_id"
+    t.index ["transaction_id"], name: "index_expenses_transactions_on_transaction_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username'
-    t.string 'currency'
-    t.decimal 'budget', precision: 18, scale: 2
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "transactions", force: :cascade do |t|
+    t.decimal "amount", precision: 18, scale: 2
+    t.text "description"
+    t.integer "creator_id"
+    t.integer "expense_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_transactions_on_creator_id"
+    t.index ["expense_id"], name: "index_transactions_on_expense_id"
   end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "currency"
+    t.decimal "budget", precision: 18, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
