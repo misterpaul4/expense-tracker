@@ -5,7 +5,6 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses.order(name: :asc)
-    @expenses_size = !@expenses.empty?
   end
 
   def new

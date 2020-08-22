@@ -20,6 +20,11 @@
   </div>
 </div>
 
+<div class="container">
+  <label for="budget_meter" class="font-weight-bold up-font mt-2">Budget (<%= amount(current_user.budget) %>)</label>
+  <meter id="budget_meter" value="<%= @total_transactions %>" min="0" max="<%= current_user.budget %>" high="<%= current_user.budget * 0.95 %>"></meter>
+</div>
+
 <div class="bottom-btn  secondary-color p-2">
   <%= link_to 'ADD NEW', new_transaction_path, class: "bottom-btn-link" %>
 </div>

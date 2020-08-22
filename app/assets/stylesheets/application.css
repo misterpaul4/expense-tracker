@@ -20,6 +20,10 @@
   --black-color: #434b54;
 }
 
+meter {
+  width: 100%;
+}
+
 .grid-centered,
 .grid-centered-item {
   display: grid;
