@@ -3,6 +3,12 @@
 
 >Design inspiration from [@Gregoire Vella](https://www.behance.net/gregoirevella)
 
+![screenshot](./docs/welcome.png)
+![screenshot](./docs/signup.png)
+![screenshot](./docs/profile.png)
+![screenshot](./docs/add_category.png)
+![screenshot](./docs/categories.png)
+
 ## Built With
 - Ruby 2.6
 - Rails 5.2
