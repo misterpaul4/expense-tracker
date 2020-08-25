@@ -18,7 +18,6 @@ class ExpensesController < ApplicationController
 
   def show
     @expenses = @expense.transactions.ordered_by_most_recent
-    @expenses_size = !@expenses.empty?
   end
 
   def icon_dir

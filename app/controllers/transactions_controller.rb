@@ -7,24 +7,20 @@ class TransactionsController < ApplicationController
   def index
     @transactions = current_user.transactions.ordered_by_most_recent.includes([:expense])
     @total_transactions = current_user.transactions.sum(:amount)
-    @transactions_size = !@transactions.empty?
   end
 
   def external_index
     @transactions = current_user.external_transactions.ordered_by_most_recent.includes([:expense])
-    @transactions_size = !@transactions.empty?
     @icon = '404.svg'
   end
 
   def index_sort
     @transactions = current_user.transactions.includes([:expense])
     @total_transactions = current_user.transactions.sum(:amount)
-    @transactions_size = !@transactions.empty?
   end
 
   def external_index_sort
     @transactions = current_user.external_transactions.includes([:expense])
-    @transactions_size = !@transactions.empty?
     @icon = '404.svg'
   end
 
