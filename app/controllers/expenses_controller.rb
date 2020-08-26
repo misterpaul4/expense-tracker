@@ -5,7 +5,6 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = current_user.expenses.order(name: :asc)
-    @expenses_size = !@expenses.empty?
   end
 
   def new
@@ -19,7 +18,6 @@ class ExpensesController < ApplicationController
 
   def show
     @expenses = @expense.transactions.ordered_by_most_recent
-    @expenses_size = !@expenses.empty?
   end
 
   def icon_dir

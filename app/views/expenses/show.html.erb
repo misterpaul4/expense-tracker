@@ -21,7 +21,7 @@
 </div>
 
 <div class="pb-5">
-  <% if @expenses_size %>
+  <% if @expenses.any? %>
   <h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
     <% @expenses.each do |transaction| %>
       <%= render partial: 'transactions/transaction_card', :locals => { :transaction => transaction } %>
