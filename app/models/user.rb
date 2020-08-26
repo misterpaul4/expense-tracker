@@ -3,6 +3,6 @@ class User < ApplicationRecord
   validates :budget, numericality: { greater_than: 0, allow_nil: true }
 
   has_many :transactions, foreign_key: 'creator_id', class_name: 'Transaction', dependent: :destroy
-  has_many :external_transactions, -> { where expense_id: nil }, class_name: 'Transaction', foreign_key: 'creator_id'
-  has_many :expenses, dependent: :destroy
+  has_many :external_transactions, -> { where category_id: nil }, class_name: 'Transaction', foreign_key: 'creator_id'
+  has_many :categories, dependent: :destroy
 end

@@ -1,6 +1,6 @@
 class Transaction < ApplicationRecord
   belongs_to :creator, class_name: 'User'
-  has_and_belongs_to_many :expenses
+  has_and_belongs_to_many :categories, optional: true
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :description, length: { maximum: 50 }

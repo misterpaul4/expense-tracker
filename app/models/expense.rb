@@ -1,6 +1,6 @@
 class Expense < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :ex_transactions, class_name: 'Transaction'
+  has_and_belongs_to_many :exp_transactions, class_name: 'Transaction'
 
   scope :sort_alphabetically, -> { order(name: :asc) }
 
