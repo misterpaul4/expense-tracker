@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   #   item.transactions.sum(:amount)
   # end
 
-  def total_external_expenses(item)
-    item.external_transactions.sum(:amount)
-  end
+  # def total_external_expenses(item)
+  #   item.external_transactions.sum(:amount)
+  # end
 
   def user_logged_in?
     return true if session[:user_id]

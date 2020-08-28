@@ -15,15 +15,17 @@
   <div class="bg-white p-3 report_stat">
     <div class="d-flex justify-content-between">
       <div>Total</div>
-      <div class="font-weight-bold text-danger"><%= amount(@total_transactions) %></div>
+      <div class="font-weight-bold text-danger"><%= amount(current_user.total_expenses) %></div>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <label for="budget_meter" class="font-weight-bold up-font mt-2">Budget (<%= amount(current_user.budget) %>)</label>
-  <meter id="budget_meter" value="<%= @total_transactions %>" min="0" max="<%= current_user.budget %>" high="<%= current_user.budget * 0.80 %>">ff</meter>
-</div>
+<% if current_user.budget %>
+  <div class="container">
+    <label for="budget_meter" class="font-weight-bold up-font mt-2">Budget (<%= amount(current_user.budget) %>)</label>
+    <meter id="budget_meter" value="<%= current_user.total_expenses %>" min="0" max="<%= current_user.budget %>" high="<%= current_user.budget * 0.80 %>"></meter>
+  </div>
+<% end %>
 
 <div class="bottom-btn  secondary-color p-2">
   <%= link_to 'ADD NEW', new_transaction_path, class: "bottom-btn-link" %>

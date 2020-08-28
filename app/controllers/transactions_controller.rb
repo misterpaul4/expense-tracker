@@ -5,8 +5,7 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_user.transactions.ordered_by_most_recent.includes([:category])
-    @total_transactions = current_user.transactions.sum(:amount)
+    @transactions = current_user.recent_transactions
   end
 
   def external_index
@@ -15,8 +14,7 @@ class TransactionsController < ApplicationController
   end
 
   def index_sort
-    @transactions = current_user.transactions.includes([:category])
-    @total_transactions = current_user.transactions.sum(:amount)
+    @transactions = current_user.ancient_transactions
   end
 
   def external_index_sort
@@ -46,10 +44,13 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = current_user.transactions.build(transaction_params)
+    param = transaction_params
+    @transaction = current_user.transactions.build(amount: param[:amount], description: param[:description])
+    @categories = Category.find(param[:category_ids])
 
     respond_to do |format|
       if @transaction.save
+        @transaction.add_category(@categories)
         format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
       else
         format.html { render :new }
@@ -96,6 +97,6 @@ class TransactionsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def transaction_params
-    params.require(:transaction).permit(:amount, :description)
+    params.require(:transaction).permit(:amount, :description, :category_ids)
   end
 end

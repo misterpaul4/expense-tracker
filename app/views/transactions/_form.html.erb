@@ -10,10 +10,10 @@
     <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
     <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">
       <div>Category: </div>
-      <%= f.input :expense_id, collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
+      <%= f.input :category_ids, collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
     </div>
     <span class="text-right d-block pr-3 pt-2">select category from dropdown</span>
-    <%= link_to new_expense_path, class:"float-right pr-3 pt-2" do %>
+    <%= link_to new_category_path, class:"float-right pr-3 pt-2" do %>
       <%= image_tag ("icons/plus.svg") %>
       New Category
     <% end %>

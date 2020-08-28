@@ -9,4 +9,12 @@ class User < ApplicationRecord
   def total_expenses
     self.transactions.sum(:amount)
   end
+
+  def recent_transactions
+    self.transactions.ordered_by_most_recent.includes(:categories)
+  end
+
+  def ancient_transactions
+    self.transactions.includes(:categories)
+  end
 end
