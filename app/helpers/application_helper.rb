@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def select_icon(transaction)
-    category = transaction.expense
+    category = transaction.categories.first
     if category.nil?
       '404.svg'
     else

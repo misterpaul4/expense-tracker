@@ -13,11 +13,11 @@ class CategoriesController < ApplicationController
 
   def new_transaction
     set_category
-    @transaction = Transaction.new(category_id: @category.id)
+    @transaction = Transaction.new
   end
 
   def show
-    @categories = @category.transactions.ordered_by_most_recent
+    @categories = @category.categorized_transactions.ordered_by_most_recent
   end
 
   def icon_dir
@@ -45,9 +45,11 @@ class CategoriesController < ApplicationController
   end
 
   def create_transaction
-    @transaction = current_user.transactions.build(transaction_params)
-    @category = Category.find(@transaction.category_id)
+    param = transaction_params
+    @transaction = current_user.transactions.build(amount: param[:amount], description: param[:description])
+    @category = Category.find(param[:category_id])
     if @transaction.save
+      @transaction.add_category(@category)
       redirect_to @category, notice: 'Transaction was successfully created.'
     else
       render :new_transaction

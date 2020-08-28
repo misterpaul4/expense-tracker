@@ -81,7 +81,7 @@ img {
   margin: 2rem;
 }
 
-[id^=expense_icon]:checked + img {
+[id^=category_icon]:checked + img {
   background: grey;
 }
 
