@@ -1,11 +1,11 @@
 # rubocop:disable Style/MultipleComparison
-module ExpensesHelper
-  def transactions(expense)
-    expense.transactions.count
+module CategoriesHelper
+  def transactions(category)
+    category.categorized_transactions.count
   end
 
-  def average(expense)
-    (total_expenses(expense) / total_expenses(current_user) * 100).round(1)
+  def average(category)
+    ((category.total_transactions / current_user.total_expenses) * 100).round(1)
   end
 
   def icons

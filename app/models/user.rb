@@ -5,4 +5,8 @@ class User < ApplicationRecord
   has_many :transactions, foreign_key: 'creator_id', class_name: 'Transaction', dependent: :destroy
   has_many :external_transactions, -> { where category_id: nil }, class_name: 'Transaction', foreign_key: 'creator_id'
   has_many :categories, dependent: :destroy
+
+  def total_expenses
+    self.transactions.sum(:amount)
+  end
 end

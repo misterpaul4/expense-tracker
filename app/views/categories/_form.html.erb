@@ -1,6 +1,6 @@
-<%= simple_form_for @expense, class: "w-100" do |f| %>
+<%= simple_form_for @category, class: "w-100" do |f| %>
 <div class="primary-color text-center position-relative py-3 text-light">
-  <%= link_to 'Back', expenses_path, class: "position-absolute move-left text-light" %>
+  <%= link_to 'Back', categories_path, class: "position-absolute move-left text-light" %>
   <span class="text-light font-weight-bold up-font centered-text"><%= title %></span>
   <%= f.submit form_action, class: "position-absolute move-right text-light submit-btn" %>
 </div>

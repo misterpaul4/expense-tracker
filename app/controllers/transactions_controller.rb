@@ -5,27 +5,27 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = current_user.transactions.ordered_by_most_recent.includes([:expense])
+    @transactions = current_user.transactions.ordered_by_most_recent.includes([:category])
     @total_transactions = current_user.transactions.sum(:amount)
   end
 
   def external_index
-    @transactions = current_user.external_transactions.ordered_by_most_recent.includes([:expense])
+    @transactions = current_user.external_transactions.ordered_by_most_recent.includes([:category])
     @icon = '404.svg'
   end
 
   def index_sort
-    @transactions = current_user.transactions.includes([:expense])
+    @transactions = current_user.transactions.includes([:category])
     @total_transactions = current_user.transactions.sum(:amount)
   end
 
   def external_index_sort
-    @transactions = current_user.external_transactions.includes([:expense])
+    @transactions = current_user.external_transactions.includes([:category])
     @icon = '404.svg'
   end
 
   def new_external
-    @transaction = Transaction.new(expense_id: nil)
+    @transaction = Transaction.new(category_id: nil)
   end
 
   # GET /transactions/1
@@ -35,12 +35,12 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
-    @categories = current_user.expenses.sort_alphabetically
+    @categories = current_user.categories.sort_alphabetically
   end
 
   # GET /transactions/1/edit
   def edit
-    @categories = current_user.expenses.sort_alphabetically
+    @categories = current_user.categories.sort_alphabetically
   end
 
   # POST /transactions

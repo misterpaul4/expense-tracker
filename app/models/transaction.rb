@@ -6,4 +6,8 @@ class Transaction < ApplicationRecord
   validates :description, length: { maximum: 50 }
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
+
+  def add_category(category)
+    self.categories << category
+  end
 end

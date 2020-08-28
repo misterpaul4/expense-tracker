@@ -10,23 +10,23 @@
   <div class="grid-centered primary-color grid-bg mb-5 pb-5">
     <div class="grid-centered-item">
 
-      <% if @expenses.any? %>
+      <% if @categories.any? %>
       <div class="d-flex flex-column">
-        <% @expenses.each do |expense| %>
-        <%= link_to expense do %>
+        <% @categories.each do |category| %>
+        <%= link_to category do %>
         <div class="d-flex my-2 justify-content-between bg-white p-sm-3 p-2 card-box">
           <div class="d-flex card-details align-items-center"> <!-- icon and info -->
-            <%= image_tag ("icons/categories/#{expense.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
+            <%= image_tag ("icons/categories/#{category.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
             <div class="d-flex flex-column justify-content-between">
-              <p class="font-weight-bold up-font"><%= expense.name %></p>
-              <span><i class="far fa-user"></i> <%= expense.user.username %><br><%= date(expense.created_at) %></span> <!-- info -->
+              <p class="font-weight-bold up-font"><%= category.name %></p>
+              <span><i class="far fa-user"></i> <%= category.user.username %><br><%= date(category.created_at) %></span> <!-- info -->
             </div>
           </div>
 
           <div class="d-flex flex-column justify-content-between align-items-end">
-            <div class="font-weight-bold trasact-amount"><%= transactions(expense) %> <i class="fas fa-flag"></i> <span class="ml-1"><%= average(expense) %> <i class="fas fa-percentage"></i> </span>
+            <div class="font-weight-bold trasact-amount"><%= transactions(category) %> <i class="fas fa-flag"></i> <span class="ml-1"><%= average(category) %> <i class="fas fa-percentage"></i> </span>
             </div> <!-- amount -->
-            <div class="total_expense-sm"><%= amount(total_expenses(expense)) %> <i class="fas fa-money-bill-alt"></i></div>
+            <div class="total_expense-sm"><%= amount(category.total_transactions) %> <i class="fas fa-money-bill-alt"></i></div>
           </div>
         </div>
         <% end %>
@@ -38,5 +38,5 @@
 </div>
 
 <div class="bottom-btn  secondary-color p-2">
-  <%= link_to 'ADD NEW', new_expense_path, class: "bottom-btn-link" %>
+  <%= link_to 'ADD NEW', new_category_path, class: "bottom-btn-link" %>
 </div>

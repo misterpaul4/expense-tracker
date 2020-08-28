@@ -1,2 +1,0 @@
-class ExpensesTransaction < ApplicationRecord
-end
