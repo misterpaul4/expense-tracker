@@ -14,7 +14,7 @@
       <div class="d-flex flex-column">
         <% @categories.each do |category| %>
         <%= link_to category do %>
-        <div class="d-flex my-2 justify-content-between bg-white p-sm-3 p-2 card-box">
+        <div class="d-flex my-2 justify-content-between bg-white p-sm-3 p-2">
           <div class="d-flex card-details align-items-center"> <!-- icon and info -->
             <%= image_tag ("icons/categories/#{category.icon}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
             <div class="d-flex flex-column justify-content-between">
@@ -23,7 +23,7 @@
             </div>
           </div>
 
-          <div class="d-flex flex-column justify-content-between align-items-end">
+          <div class="d-flex flex-column justify-content-between align-items-end w-50">
             <div class="font-weight-bold trasact-amount"><%= transactions(category) %> <i class="fas fa-flag"></i> <span class="ml-1"><%= average(category) %> <i class="fas fa-percentage"></i> </span>
             </div> <!-- amount -->
             <div class="total_expense-sm"><%= amount(category.total_transactions) %> <i class="fas fa-money-bill-alt"></i></div>

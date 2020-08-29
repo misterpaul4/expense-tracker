@@ -15,7 +15,7 @@
   <div class="bg-white p-3 report_stat">
     <div class="d-flex justify-content-between">
       <div>Total</div>
-      <div class="font-weight-bold text-danger"><%= amount(total_external_expenses(current_user)) %></div>
+      <div class="font-weight-bold text-danger"><%= amount(current_user.total_external_expenses) %></div>
     </div>
   </div>
 </div>

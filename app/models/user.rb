@@ -3,11 +3,14 @@ class User < ApplicationRecord
   validates :budget, numericality: { greater_than: 0, allow_nil: true }
 
   has_many :transactions, foreign_key: 'creator_id', class_name: 'Transaction', dependent: :destroy
-  has_many :external_transactions, -> { where category_id: nil }, class_name: 'Transaction', foreign_key: 'creator_id'
   has_many :categories, dependent: :destroy
 
   def total_expenses
     self.transactions.sum(:amount)
+  end
+
+  def total_external_expenses
+    self.ancient_external_transactions.sum(:amount)
   end
 
   def recent_transactions
@@ -16,5 +19,13 @@ class User < ApplicationRecord
 
   def ancient_transactions
     self.transactions.includes(:categories)
+  end
+
+  def recent_external_transactions
+    self.transactions.ungrouped.ordered_by_most_recent
+  end
+
+  def ancient_external_transactions
+    self.transactions.ungrouped
   end
 end
