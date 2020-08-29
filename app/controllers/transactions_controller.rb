@@ -44,17 +44,18 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    param = transaction_params
-    @transaction = current_user.transactions.build(amount: param[:amount], description: param[:description])
-    @categories = Category.find(param[:category_ids])
+    @transaction = current_user.transactions.build(transaction_params)
 
-    respond_to do |format|
-      if @transaction.save
-        @transaction.add_category(@categories)
-        format.html { redirect_to transactions_path, notice: 'Transaction was successfully created.' }
-      else
-        format.html { render :new }
+    if @transaction.save
+      category_params = transaction_params[:category_ids]
+
+      if category_params.present?
+        categories = Category.find(category_params)
+        @transaction.add_category(categories)
       end
+      redirect_to transactions_path, notice: 'Transaction was successfully created.'
+    else
+      render :new
     end
   end
 
