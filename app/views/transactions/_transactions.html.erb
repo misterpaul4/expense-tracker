@@ -22,7 +22,7 @@
 
 <% if current_user.budget %>
   <div class="container">
-    <label for="budget_meter" class="font-weight-bold up-font mt-2">Budget (<%= amount(current_user.budget) %>)</label>
+    <label for="budget_meter" class="font-weight-bold up-font mt-2">Balance <%= balance %></label>
     <meter id="budget_meter" value="<%= current_user.total_expenses %>" min="0" max="<%= current_user.budget %>" high="<%= current_user.budget * 0.80 %>"></meter>
   </div>
 <% end %>

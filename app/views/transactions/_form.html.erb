@@ -1,6 +1,6 @@
 <%= simple_form_for @transaction, class: "w-100" do |f| %>
 <div class="primary-color text-center position-relative py-3 text-light">
-  <%= link_to 'Back', transactions_path, class: "position-absolute move-left text-light" %>
+  <%= link_to 'Back', back_path, class: "position-absolute move-left text-light" %>
   <span class="text-light font-weight-bold up-font centered-text"><%= title %></span>
   <%= f.submit form_action, class: "position-absolute move-right text-light submit-btn" %>
 </div>
@@ -10,9 +10,8 @@
     <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
     <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">
       <div>Category: </div>
-      <%= f.input :category_ids, collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
+      <%= f.input :category_ids, prompt: "select category", collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
     </div>
-    <span class="text-right d-block pr-3 pt-2">select category from dropdown</span>
     <%= link_to new_category_path, class:"float-right pr-3 pt-2" do %>
       <%= image_tag ("icons/plus.svg") %>
       New Category

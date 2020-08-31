@@ -2,8 +2,6 @@ class TransactionsController < ApplicationController
   before_action :authenticate_user
   before_action :set_transaction, only: %i[show edit update destroy]
 
-  # GET /transactions
-  # GET /transactions.json
   def index
     @transactions = current_user.recent_transactions
   end
@@ -26,23 +24,21 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
   end
 
-  # GET /transactions/1
-  # GET /transactions/1.json
-  def show; end
+  def show;
+    @transactions = current_user.transactions
+    @transactions_array = current_user.transactions.pluck(:id)
+  end
 
-  # GET /transactions/new
   def new
     @transaction = Transaction.new
     @categories = current_user.categories.sort_alphabetically
   end
 
-  # GET /transactions/1/edit
   def edit
     @categories = current_user.categories.sort_alphabetically
   end
 
-  # POST /transactions
-  # POST /transactions.json
+
   def create
     @transaction = current_user.transactions.build(transaction_params)
 
@@ -68,20 +64,16 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /transactions/1
-  # PATCH/PUT /transactions/1.json
   def update
     respond_to do |format|
       if @transaction.update(transaction_params)
-        format.html { redirect_to transactions_path, notice: 'Transaction was successfully updated.' }
+        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
       else
         format.html { render :edit }
       end
     end
   end
 
-  # DELETE /transactions/1
-  # DELETE /transactions/1.json
   def destroy
     @transaction.destroy
     respond_to do |format|
@@ -91,12 +83,10 @@ class TransactionsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def transaction_params
     params.require(:transaction).permit(:amount, :description, :category_ids)
   end

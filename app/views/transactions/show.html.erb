@@ -1,4 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <span class="text-light font-weight-bold up-font centered-text">DETAILS</span>
+  <%= link_to 'Back', transactions_path, class:"position-absolute move-left text-light" %>
+</div>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Back', transactions_path %>
+<div class="m-2">
+  <div class="bg-white p-3 mb-2">
+    <div class="mb-4 d-flex align-items-center">
+      <%= image_tag ("icons/categories/#{select_icon(@transaction)}"), class: "icon-box-show mr-sm-3 mr-2 p-3" %>
+      <h2 class="d-inline-block text-capitalize"><%= @transaction.category_1.name %></h2>
+    </div>
+    <p class="up-font"><%= @transaction.description %></p>
+  </div>
+
+  <div class="bg-white p-3 mb-2">
+    <h4 class="mb-3">Transaction #000<%= transaction_number(@transaction.id) %></h4>
+    <div class="light-black"><%= image_tag("icons/date.svg") %> <div class="d-inline-block ml-2"><%= date(@transaction.created_at) %></div></div>
+  </div>
+
+  <div class="bg-white p-3">
+    <div class="text-uppercase up-font-2 show-pay">Total Payment<span class="d-inline-block float-right font-weight-bold"><%= amount(@transaction.amount) %></span></div>
+  </div>
+</div>
+
+<div class="text-center transaction-action-btns m-2 pt-4 font-weight-bold">
+  <%= link_to 'Edit', edit_transaction_path(@transaction), class: "d-sm-inline-block mx-auto my-2 border border-primary text-primary px-3 py-2"%>
+  <%= link_to 'Delete', @transaction, method: :delete, data: { confirm: "Are you sure?" }, class: "d-sm-inline-block mx-auto my-2 border border-danger text-danger px-3 py-2"%>
+</div>

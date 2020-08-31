@@ -14,4 +14,8 @@ class Transaction < ApplicationRecord
   def add_category(category)
     self.categories << category
   end
+
+  def category_1
+    self.categories.first
+  end
 end

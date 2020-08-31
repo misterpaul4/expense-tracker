@@ -1,24 +1,15 @@
 <div class="container">
+  <%= link_to transaction do %>
   <div class="d-flex my-3 justify-content-between bg-white p-sm-3 p-2 card-box">
-  <div class="d-flex card-details align-items-center"> <!-- icon and info -->
-    <%= image_tag ("icons/categories/#{select_icon(transaction)}"), class: "icon-box mr-sm-3 mr-2" %> <!-- icon -->
-    <div class="d-flex flex-column justify-content-between">
-      <p><%= transaction.description %></p>
-      <span><%= date(transaction.created_at) %></span> <!-- info -->
+    <div class="d-flex card-details align-items-center">
+      <%= image_tag ("icons/categories/#{select_icon(transaction)}"), class: "icon-box mr-sm-3 mr-2" %>
+      <div class="d-flex flex-column justify-content-between">
+        <p><%= transaction.description %></p>
+        <span><%= date(transaction.created_at) %></span>
+      </div>
     </div>
-  </div>
 
-  <div class="d-flex flex-column justify-content-between align-items-end">
-    <div class="font-weight-bold trasact-amount"><%= amount(transaction.amount) %></div> <!-- amount -->
-    <div class="d-flex">
-      <%= link_to edit_transaction_path(transaction) do %>
-        <%= image_tag ("icons/edit.svg"), class: "action-icon mr-3" %>
-      <% end %>
-
-      <%= link_to transaction, method: :delete, data: { confirm: 'Are you sure?' } do %>
-        <%= image_tag ("icons/trash.svg"), class: "action-icon" %>
-      <% end %>
-    </div>
+    <div class="font-weight-bold trasact-amount"><%= amount(transaction.amount) %> <%= multiple_cat(transaction) %></div>
   </div>
-  </div>
+  <% end %>
 </div>

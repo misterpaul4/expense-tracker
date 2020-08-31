@@ -31,6 +31,10 @@ meter {
   place-items: center;
 }
 
+.light-black {
+  color: #999999;
+}
+
 .profile-photo {
   width: 150px;
 }
@@ -87,6 +91,10 @@ img {
 
 .action-icon {
   width: 1.1em;
+}
+
+.transaction-action-btns a {
+  width: 100px;
 }
 
 .body-background {
@@ -168,6 +176,13 @@ body {
   height: 30px;
 }
 
+.icon-box-show {
+  min-width: 80px;
+  height: 80px;
+  border: 1px solid lightgray;
+  box-shadow: 0 8px 6px -6px black;
+}
+
 .submit-btn {
   border: none;
   background: none;
@@ -233,5 +248,14 @@ li {
 
   .centered-text {
     font-size: 0.8rem;
+  }
+
+  .show-pay {
+    font-size: 1rem;
+  }
+
+  .transaction-action-btns a {
+    display: block;
+    width: 100%;
   }
 }

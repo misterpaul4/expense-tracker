@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def balance
-    amount(current_user.budget - total_expenses(current_user)).to_s
+    amount(current_user.budget - current_user.total_expenses)
   end
 
   def date(day)
@@ -12,11 +12,15 @@ module ApplicationHelper
   end
 
   def select_icon(transaction)
-    category = transaction.categories.first
+    category = transaction.category_1
     if category.nil?
       '404.svg'
     else
       category.icon
     end
+  end
+
+  def multiple_cat(transaction)
+    return "(+)" if transaction.categories.size > 1
   end
 end
