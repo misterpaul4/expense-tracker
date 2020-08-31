@@ -40,14 +40,15 @@ class TransactionsController < ApplicationController
 
 
   def create
-    @transaction = current_user.transactions.build(transaction_params)
+    parameter = transaction_params
+    @transaction = current_user.transactions.build(amount: parameter[:amount], description: parameter[:description])
 
     if @transaction.save
-      category_params = transaction_params[:category_ids]
+      category_params = parameter[:category_ids]
 
       if category_params.present?
-        categories = Category.find(category_params)
-        @transaction.add_category(categories)
+        cat = Category.find(category_params)
+        @transaction.add_category(cat)
       end
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
     else

@@ -5,20 +5,24 @@
 
 <div class="m-2">
   <div class="bg-white p-3 mb-2">
-    <div class="mb-4 d-flex align-items-center">
-      <%= image_tag ("icons/categories/#{select_icon(@transaction)}"), class: "icon-box-show mr-sm-3 mr-2 p-3" %>
-      <h2 class="d-inline-block text-capitalize"><%= @transaction.category_1.name %></h2>
+    <div class="mb-4 d-flex flex-sm-column flex-row align-items-center">
+      <%= image_tag ("icons/categories/#{select_icon(@transaction)}"), class: "icon-box-show mr-sm-0 mr-2 p-3" %>
+      <div>
+        <h2 class="text-capitalize text-center mt-3"><%= @transaction.category_1.name %> </h2>
+        <div>&nbsp;<%= additional_categories(@transaction) %></div>
+      </div>
     </div>
-    <p class="up-font"><%= @transaction.description %></p>
+    <p class="up-font text-sm-center text-left">"<%= @transaction.description %>"</p>
   </div>
 
-  <div class="bg-white p-3 mb-2">
+  <div class="bg-white p-3 mb-2 d-sm-flex d-block flex-column align-items-center">
     <h4 class="mb-3">Transaction #000<%= transaction_number(@transaction.id) %></h4>
     <div class="light-black"><%= image_tag("icons/date.svg") %> <div class="d-inline-block ml-2"><%= date(@transaction.created_at) %></div></div>
   </div>
 
   <div class="bg-white p-3">
-    <div class="text-uppercase up-font-2 show-pay">Total Payment<span class="d-inline-block float-right font-weight-bold"><%= amount(@transaction.amount) %></span></div>
+    <div class="text-uppercase up-font-2 show-pay">Total Payment<span class="d-inline-block float-right font-weight-bold"><%= amount(@transaction.amount) %></span>
+    </div>
   </div>
 </div>
 
