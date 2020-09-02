@@ -36,7 +36,7 @@ meter {
 }
 
 .light-black {
-  color: #999999;
+  color: #999;
 }
 
 .profile-photo {
@@ -252,7 +252,7 @@ li {
   .total_expense-sm,
   .move-right,
   .move-left {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
 
   .centered-text {

@@ -10,14 +10,14 @@ class Category < ApplicationRecord
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def add_transaction(transaction)
-    self.categorized_transactions << transaction
+    categorized_transactions << transaction
   end
 
   def remove_transaction(transaction)
-    self.categorized_transactions.delete(transaction)
+    categorized_transactions.delete(transaction)
   end
 
   def total_transactions
-    self.categorized_transactions.sum(:amount)
+    categorized_transactions.sum(:amount)
   end
 end

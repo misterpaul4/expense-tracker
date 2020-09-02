@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def back_path(default)
+    request.referer.present? ? request.referer : default
+  end
+
   def amount(item)
     number_to_currency(item, unit: current_user.currency.to_s + ' ')
   end

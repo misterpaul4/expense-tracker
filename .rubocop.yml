@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: disable
   Exclude:
     - "README.md"
     - "Guardfile"

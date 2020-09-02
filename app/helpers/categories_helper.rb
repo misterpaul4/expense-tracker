@@ -1,4 +1,3 @@
-# rubocop:disable Style/MultipleComparison
 module CategoriesHelper
   def transactions(category)
     category.categorized_transactions.count
@@ -11,7 +10,7 @@ module CategoriesHelper
   def icons
     collection = []
     Dir.foreach(icon_dir) do |img|
-      next if img == '.' or img == '..'
+      next if (img == '.') || (img == '..')
 
       collection.push([image_tag("icons/categories/#{img}"), img]) unless img.eql? '404.svg'
     end
@@ -19,4 +18,3 @@ module CategoriesHelper
     collection
   end
 end
-# rubocop:enable Style/MultipleComparison

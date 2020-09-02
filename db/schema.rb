@@ -10,39 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_26_192211) do
-
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "icon"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_categories_on_user_id"
+ActiveRecord::Schema.define(version: 20_200_826_192_211) do
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.string 'icon'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['user_id'], name: 'index_categories_on_user_id'
   end
 
-  create_table "categories_transactions", id: false, force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "transaction_id"
-    t.index ["category_id"], name: "index_categories_transactions_on_category_id"
-    t.index ["transaction_id"], name: "index_categories_transactions_on_transaction_id"
+  create_table 'categories_transactions', id: false, force: :cascade do |t|
+    t.integer 'category_id'
+    t.integer 'transaction_id'
+    t.index ['category_id'], name: 'index_categories_transactions_on_category_id'
+    t.index ['transaction_id'], name: 'index_categories_transactions_on_transaction_id'
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.decimal "amount", precision: 18, scale: 2
-    t.text "description"
-    t.integer "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_transactions_on_creator_id"
+  create_table 'transactions', force: :cascade do |t|
+    t.decimal 'amount', precision: 18, scale: 2
+    t.text 'description'
+    t.integer 'creator_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['creator_id'], name: 'index_transactions_on_creator_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "currency"
-    t.decimal "budget", precision: 18, scale: 2
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'username'
+    t.string 'currency'
+    t.decimal 'budget', precision: 18, scale: 2
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

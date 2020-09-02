@@ -6,26 +6,34 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
 
   def total_expenses
-    self.transactions.sum(:amount)
+    transactions.sum(:amount)
+  end
+
+  def total_grouped_expenses
+    transactions.grouped.sum(:amount)
+  end
+
+  def total_ungrouped_expenses
+    transactions.ungrouped.sum(:amount)
   end
 
   def total_external_expenses
-    self.ancient_external_transactions.sum(:amount)
+    ancient_external_transactions.sum(:amount)
   end
 
   def recent_transactions
-    self.transactions.ordered_by_most_recent.includes(:categories)
+    transactions.ordered_by_most_recent.includes(:categories)
   end
 
   def ancient_transactions
-    self.transactions.includes(:categories)
+    transactions.includes(:categories)
   end
 
   def recent_external_transactions
-    self.transactions.ungrouped.ordered_by_most_recent
+    transactions.ungrouped.ordered_by_most_recent
   end
 
   def ancient_external_transactions
-    self.transactions.ungrouped
+    transactions.ungrouped
   end
 end

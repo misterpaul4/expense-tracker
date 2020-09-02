@@ -38,7 +38,7 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
   end
 
-  def show;
+  def show
     @transactions = current_user.transactions
     @transactions_array = current_user.transactions.pluck(:id)
   end
@@ -51,7 +51,6 @@ class TransactionsController < ApplicationController
   def edit
     @categories = current_user.categories.sort_alphabetically
   end
-
 
   def create
     parameter = transaction_params
@@ -87,7 +86,7 @@ class TransactionsController < ApplicationController
 
       if category_params.present?
         category = current_user.categories.find(parameter[:category_ids])
-        cat = @transaction.add_category(category)
+        @transaction.add_category(category)
       end
       redirect_to @transaction, notice: 'Transaction was successfully updated.'
     else

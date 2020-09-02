@@ -6,25 +6,29 @@ class Transaction < ApplicationRecord
   validates :description, length: { maximum: 50 }
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
-  scope :ungrouped, -> {
-    joins("LEFT JOIN categories_transactions ON transactions.id = categories_transactions.transaction_id")
-    .where("categories_transactions.transaction_id IS NULL")
+  scope :ungrouped, lambda {
+    joins('LEFT JOIN categories_transactions ON transactions.id = categories_transactions.transaction_id')
+      .where('categories_transactions.transaction_id IS NULL')
+  }
+  scope :grouped, lambda {
+    joins('JOIN categories_transactions ON transactions.id = categories_transactions.transaction_id')
   }
 
   def add_category(category)
-    self.categories << category
+    categories << category
   end
 
   def remove_category(category)
-    self.categories.delete(category)
+    categories.delete(category)
   end
 
   def category_1
-    self.categories[0]
+    categories[0]
   end
 
   def additional_categories?
-    return true if self.categories.size > 1
+    return true if categories.size > 1
+
     false
   end
 end
