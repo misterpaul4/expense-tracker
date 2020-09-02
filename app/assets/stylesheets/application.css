@@ -172,10 +172,6 @@ body {
   background: var(--blue-color);
 }
 
-.card-details {
-  flex-basis: 65%;
-}
-
 .icon-wrap {
   border: 1px solid white;
 }
@@ -188,6 +184,13 @@ body {
 .icon-box-show {
   min-width: 80px;
   height: 80px;
+  border: 1px solid lightgray;
+  box-shadow: 0 8px 6px -6px black;
+}
+
+.cat-box {
+  height: 50px;
+  min-width: 50px;
   border: 1px solid lightgray;
   box-shadow: 0 8px 6px -6px black;
 }

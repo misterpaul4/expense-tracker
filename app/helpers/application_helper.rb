@@ -1,6 +1,11 @@
 module ApplicationHelper
   def back_path(default)
-    request.referer.present? ? request.referer : default
+    previous_url = request.referer
+    if previous_url.present?
+      return previous_url unless previous_url.include? 'edit'
+    end
+
+    default
   end
 
   def amount(item)

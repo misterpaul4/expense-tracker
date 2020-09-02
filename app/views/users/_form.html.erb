@@ -7,9 +7,5 @@
 
   <%= f.input :username, placeholder: "Username", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
   <%= f.input :budget, placeholder: "Initial Budget", :input_html => {value: number_with_precision(f.object.budget, precision: 2), class: "w-100 px-3 py-3 mt-2 border-0 mid-font" }, label: false %>
-  <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">
-    <div>Currency: </div>
-    <%= f.currency_select(:currency, ["USD", "EUR", "GBP"], {}, {class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success"})%>
-  </div>
+    <%= f.currency_select(:currency, ["USD", "EUR", "GBP"], {}, class: "border-0 overflow-hidden mt-2 list-group-item list-group-item-dark" )%>
 <% end %>
-<span class="text-right d-block pr-3 pt-2">select currency from dropdown</span>
