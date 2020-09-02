@@ -1,6 +1,17 @@
 
 <%= render partial: 'form', :locals => { :title => 'EDIT TRANSACTION', :form_action => 'Save', :back_path => transaction_path(@transaction) } %>
-<div>
-  <button onclick="revealCategories()" class="mt-5 d-block mx-auto border border-success text-success px-3 py-2">Add more categories</button>
-</div>
 
+<% if @categories.size > @transaction.categories.size %>
+  <div class="mb-2">
+    <button class="mt-5 d-block mx-auto border border-success text-success px-3 py-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add more categories</button>
+  </div>
+  <ul class="collapse list-group" id="collapseExample">
+    <div class="d-flex justify-content-center flex-wrap text-center">
+    <% unselected_categories(@categories, @transaction.categories).each do |cat| %>
+    <div>
+      <%= link_to cat.name, update_cat_link(cat), method: :post, class:"card card-body list-group-item list-group-item-success m-1" %>
+    </div>
+    <% end %>
+  </div>
+  </ul>
+<% end %>

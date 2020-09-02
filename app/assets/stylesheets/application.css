@@ -105,6 +105,11 @@ img {
   border: 1px solid black;
 }
 
+.action-del-info {
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
 a:hover {
   text-decoration: none;
   color: initial;

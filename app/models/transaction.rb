@@ -15,6 +15,10 @@ class Transaction < ApplicationRecord
     self.categories << category
   end
 
+  def remove_category(category)
+    self.categories.delete(category)
+  end
+
   def category_1
     self.categories.last
   end

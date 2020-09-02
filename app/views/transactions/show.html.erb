@@ -8,11 +8,11 @@
     <div class="mb-4 d-flex flex-sm-column flex-row align-items-center">
       <%= image_tag ("icons/categories/#{select_icon(@transaction)}"), class: "icon-box-show mr-sm-0 mr-2 p-3" %>
       <div>
-        <h2 class="text-capitalize text-center mt-3"><%= @transaction.category_1.name %> </h2>
+        <h2 class="text-capitalize text-sm-center mt-3"><%= @transaction.category_1.name %> </h2>
         <div>&nbsp;<%= additional_categories(@transaction) %></div>
       </div>
     </div>
-    <p class="up-font text-sm-center text-left">"<%= @transaction.description %>"</p>
+    <p class="up-font text-sm-center">"<%= @transaction.description %>"</p>
   </div>
 
   <div class="bg-white p-3 mb-2 d-sm-flex d-block flex-column align-items-center">

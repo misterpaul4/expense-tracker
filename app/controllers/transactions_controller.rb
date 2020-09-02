@@ -20,6 +20,20 @@ class TransactionsController < ApplicationController
     @icon = '404.svg'
   end
 
+  def add_category
+    category = Category.find(params[:category_id])
+    transaction = Transaction.find(params[:transaction_id])
+    transaction.add_category(category)
+    redirect_to edit_transaction_path(transaction)
+  end
+
+  def remove_category
+    category = Category.find(params[:category_id])
+    transaction = Transaction.find(params[:transaction_id])
+    transaction.remove_category(category)
+    redirect_to edit_transaction_path(transaction)
+  end
+
   def new_external
     @transaction = Transaction.new
   end

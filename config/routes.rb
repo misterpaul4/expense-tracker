@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'categories/(:id)/new', to: 'categories#new_transaction', as: 'new_categorized_transaction'
   post 'categories/(:id)/new', to: 'categories#create_transaction', as: 'create_categorized_transaction'
 
+  post 'add_category', to: 'transactions#add_category'
+  delete 'remove_category', to: 'transactions#remove_category'
   get 'welcome', to: 'sessions#welcome'
 
   get 'login', to: 'sessions#new', as: 'login'
