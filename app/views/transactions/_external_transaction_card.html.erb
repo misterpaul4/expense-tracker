@@ -1,0 +1,17 @@
+<div class="container">
+  <%= link_to transaction do %>
+  <div class="d-flex my-3 justify-content-between bg-white p-sm-3 p-2 card-box">
+    <div class="d-flex card-details align-items-center">
+      <%= image_tag ("icons/categories/404.svg"), class: "mr-sm-3 mr-2 icon-box-show p-3" %>
+      <div class="d-flex flex-column justify-content-between">
+        <p><%= transaction.description %></p>
+        <span><%= date(transaction.created_at) %></span>
+      </div>
+    </div>
+
+    <div class="font-weight-bold trasact-amount">
+      <%= amount(transaction.amount) %>
+      </div>
+  </div>
+  <% end %>
+</div>

@@ -3,7 +3,7 @@
 
   <% if @transactions.any? %>
     <% @transactions.each do |transaction| %>
-      <%= render partial: 'transaction_card', :locals => { :transaction => transaction } %>
+      <%= render partial: 'external_transaction_card', :locals => { :transaction => transaction } %>
     <% end %>
   <% end %>
 </div>

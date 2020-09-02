@@ -24,7 +24,7 @@
   <% if @categories.any? %>
   <h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
     <% @categories.each do |transaction| %>
-      <%= render partial: 'transactions/transaction_card', :locals => { :transaction => transaction } %>
+      <%= render partial: 'transaction_card', :locals => { :transaction => transaction } %>
     <% end %>
 
   <% else %>

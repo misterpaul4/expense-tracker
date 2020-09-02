@@ -28,8 +28,8 @@ class TransactionsController < ApplicationController
   end
 
   def remove_category
-    category = Category.find(params[:category_id])
-    transaction = Transaction.find(params[:transaction_id])
+    category = current_user.categories.find(params[:category_id])
+    transaction = current_user.transactions.find(params[:transaction_id])
     transaction.remove_category(category)
     redirect_to edit_transaction_path(transaction)
   end
