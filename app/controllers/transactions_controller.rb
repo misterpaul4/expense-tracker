@@ -21,8 +21,8 @@ class TransactionsController < ApplicationController
   end
 
   def add_category
-    category = Category.find(params[:category_id])
-    transaction = Transaction.find(params[:transaction_id])
+    category = current_user.categories.find(params[:category_id])
+    transaction = current_user.transactions.find(params[:transaction_id])
     transaction.add_category(category)
     redirect_to edit_transaction_path(transaction)
   end
@@ -61,7 +61,7 @@ class TransactionsController < ApplicationController
       category_params = parameter[:category_ids]
 
       if category_params.present?
-        cat = Category.find(category_params)
+        cat = current_user.categories.find(category_params)
         @transaction.add_category(cat)
       end
       redirect_to transactions_path, notice: 'Transaction was successfully created.'
@@ -80,12 +80,18 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @transaction.update(transaction_params)
-        format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
-      else
-        format.html { render :edit }
+    parameter = transaction_params
+
+    if @transaction.update(amount: parameter[:amount], description: parameter[:description])
+      category_params = parameter[:category_ids]
+
+      if category_params.present?
+        category = current_user.categories.find(parameter[:category_ids])
+        cat = @transaction.add_category(category)
       end
+      redirect_to @transaction, notice: 'Transaction was successfully updated.'
+    else
+      render :edit
     end
   end
 

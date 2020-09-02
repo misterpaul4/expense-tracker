@@ -25,6 +25,10 @@ meter {
   font-size: 1.4em;
 }
 
+.light-border {
+  border: 1px dotted lightgray;
+}
+
 .grid-centered,
 .grid-centered-item {
   display: grid;
@@ -256,7 +260,7 @@ li {
   }
 
   .show-pay {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .transaction-action-btns a {

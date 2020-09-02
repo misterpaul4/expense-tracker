@@ -20,15 +20,11 @@ class Transaction < ApplicationRecord
   end
 
   def category_1
-    self.categories.last
+    self.categories[0]
   end
 
   def additional_categories?
-    return true if self.categories > 1
+    return true if self.categories.size > 1
     false
-  end
-
-  def other_categories
-    self.categories.pluck(:name)
   end
 end

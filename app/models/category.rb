@@ -13,6 +13,10 @@ class Category < ApplicationRecord
     self.categorized_transactions << transaction
   end
 
+  def remove_transaction(transaction)
+    self.categorized_transactions.delete(transaction)
+  end
+
   def total_transactions
     self.categorized_transactions.sum(:amount)
   end

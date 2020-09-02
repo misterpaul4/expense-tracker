@@ -21,6 +21,6 @@ module ApplicationHelper
   end
 
   def multiple_cat(transaction)
-    return "(+)" if transaction.categories.size > 1
+    return transaction.categories.size if transaction.additional_categories?
   end
 end

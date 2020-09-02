@@ -9,7 +9,10 @@
       </div>
     </div>
 
-    <div class="font-weight-bold trasact-amount"><%= amount(transaction.amount) %> <%= multiple_cat(transaction) %></div>
+    <div class="font-weight-bold trasact-amount">
+      <%= amount(transaction.amount) %>
+      <span class="badge badge-dark"><%= multiple_cat(transaction) %></span>
+      </div>
   </div>
   <% end %>
 </div>

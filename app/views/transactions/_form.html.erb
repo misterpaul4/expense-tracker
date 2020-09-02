@@ -9,18 +9,35 @@
     <%= f.input :amount, placeholder: "Amount", :input_html => {value: number_with_precision(f.object.amount, precision: 2), class: "w-100 px-3 py-3 mt-2 border-0 mid-font" }, label: false  %>
     <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
 
-    <% if @transaction.categories.nil? %>
+    <% if @transaction.categories.empty? %>
       <div class="w-100 px-3 py-3 mt-2 border-0 mid-font bg-white d-flex justify-content-between align-items-center">
         <div>Category: </div>
         <%= f.input :category_ids, prompt: "select category", collection: @categories, label: false, input_html: { class: "select-box text-right overflow-hidden px-3 border-0 bg-white text-success" } %>
       </div>
+
     <% else %>
-    <ul class="mt-2 list-group list-group-horizontal d-flex justify-content-center flex-wrap">
-      <% @transaction.categories.each do |cat| %>
-      <%= link_to cat.name, remove_cat_link(cat), method: :delete, data: { confirm: 'Are you sure?' }, class: "list-group-item m-1" %>
+      <ul class="mt-2 list-group list-group-horizontal d-flex justify-content-center flex-wrap">
+        <% @transaction.categories.each do |cat| %>
+        <%= link_to cat.name, remove_cat_link(cat), method: :delete, data: { confirm: 'Are you sure?' }, class: "list-group-item m-1" %>
+        <% end %>
+      </ul>
+      <div class="text-center action-del-info">*tap to remove</div>
+
+      <% if @categories.size > @transaction.categories.size %>
+        <div class="mb-2">
+          <button class="mt-5 d-block mx-auto border border-success text-success px-3 py-2" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add more categories</button>
+        </div>
+        <ul class="collapse list-group" id="collapseExample">
+          <div class="d-flex justify-content-center flex-wrap text-center">
+          <% unselected_categories(@categories, @transaction.categories).each do |cat| %>
+          <div>
+            <%= link_to cat.name, update_cat_link(cat), method: :post, class:"card card-body list-group-item list-group-item-success m-1" %>
+          </div>
+          <% end %>
+        </div>
+        </ul>
       <% end %>
-    </ul>
-    <div class="text-center action-del-info">*tap to remove</div>
+
     <% end %>
   </div>
   </div>
