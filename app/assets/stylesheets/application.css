@@ -59,7 +59,8 @@ meter {
   background: var(--green-color);
 }
 
-.radio-off {
+.radio-off,
+.dropdown {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

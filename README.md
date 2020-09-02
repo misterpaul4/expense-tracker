@@ -8,6 +8,10 @@
 ![screenshot](./docs/profile.png)
 ![screenshot](./docs/add_category.png)
 ![screenshot](./docs/categories.png)
+![screenshot](./docs/transactions.png)
+![screenshot](./docs/ungrouped_transactions.png)
+![screenshot](./docs/show_transaction.png)
+
 
 ## Built With
 - Ruby 2.6

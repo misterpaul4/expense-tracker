@@ -10,8 +10,8 @@
     <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
 
     <% if @transaction.categories.empty? %>
-        <%= f.input :category_ids, prompt: "select category", collection: @categories, label: false, input_html: { class: "border-0 overflow-hidden mt-2 list-group-item list-group-item-dark w-100 overflow-hidden" } %>
-      </div>
+        <%= f.input :category_ids, prompt: "select category", collection: @categories, label: false, input_html: { class: "border-0 overflow-hidden mt-2 list-group-item list-group-item-dark w-100 dropdown" } %>
+        <div class="text-center action-del-info">*select category from dropdwon</div>
 
     <% else %>
       <ul class="mt-2 list-group list-group-horizontal d-flex justify-content-center flex-wrap">
