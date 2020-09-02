@@ -58,7 +58,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     if @category.destroy
-      redirect_to categories_path, notice: 'transaction category and related transactions removed'
+      redirect_to categories_path, notice: 'category and related transactions removed.'
     else
       render :edit, alert: 'cannot delete this category, try again.'
     end
