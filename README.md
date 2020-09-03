@@ -19,7 +19,7 @@
 - Bootstrap
 
 ## Live Demo
-[Check it out!](https://sleepy-earth-55330.herokuapp.com/)
+[Check it out!](https://gentle-beyond-56463.herokuapp.com/welcome)
 
 # Getting Started
 ## Installation
