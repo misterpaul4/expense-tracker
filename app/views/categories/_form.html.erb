@@ -1,0 +1,18 @@
+<%= simple_form_for @category, class: "w-100" do |f| %>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Back', categories_path, class: "position-absolute move-left text-light" %>
+  <span class="text-light font-weight-bold up-font centered-text"><%= title %></span>
+  <%= f.submit form_action, class: "position-absolute move-right text-light submit-btn" %>
+</div>
+
+  <%= f.input :name, placeholder: "Name",label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
+
+  <h4 class="mt-5 text-center">select an icon for this category</h4>
+
+  <div class="icons">
+    <%= f.input :icon ,as: :radio_buttons, label: false, collection: icons, input_html: { class: "radio-off" } %>
+  </div>
+
+
+<% end %>
+

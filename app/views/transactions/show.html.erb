@@ -1,0 +1,46 @@
+<div class="primary-color text-center position-relative py-3 text-light">
+  <span class="text-light font-weight-bold up-font centered-text">DETAILS</span>
+  <%= link_to 'Back', back_path(transactions_path), class:"position-absolute move-left text-light" %>
+</div>
+
+
+<div class="m-2">
+  <div class="bg-white p-3 mb-2">
+    <div class="mb-4 d-flex flex-sm-column flex-row align-items-center">
+      <%= image_tag ("icons/categories/#{select_icon(@transaction)}"), class: "icon-box-show mr-sm-0 mr-2 p-3" %>
+      <div>
+        <% if @transaction.categories.empty? %>
+          <h2 class="text-capitalize text-sm-center mt-3">External Transaction </h2>
+        <% else %>
+          <h2 class="text-capitalize text-sm-center mt-3"><%= @transaction.category_1.name %> </h2>
+        <% end %>
+      </div>
+    </div>
+    <p class="up-font text-sm-center">"<%= @transaction.description %>"</p>
+  </div>
+
+  <div class="bg-white p-3 mb-2 d-sm-flex d-block flex-column align-items-center">
+    <h4 class="mb-3">Transaction #000<%= transaction_number(@transaction.id) %></h4>
+    <div class="light-black"><%= image_tag("icons/date.svg") %> <div class="d-inline-block ml-2"><%= date(@transaction.created_at) %></div></div>
+  </div>
+
+  <div class="bg-white p-3">
+    <div class="text-uppercase up-font-2 show-pay">Transaction Payment<span class="d-inline-block float-right font-weight-bold"><%= amount(@transaction.amount) %></span>
+    </div>
+    <% if @transaction.additional_categories? %>
+    <div class="mt-2">Total Payment<span class="d-inline-block float-right font-weight-bold"><%= amount(@transaction.amount * @transaction.categories.size ) %></span>
+    </div>
+
+      <div class="d-flex flex-wrap mt-2">
+      <% @transaction.categories.each do |cat| %>
+        <div class="m-1 light-border p-2"><%= cat.name %></div>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="text-center transaction-action-btns m-2 pt-4 font-weight-bold">
+  <%= link_to 'Edit', edit_transaction_path(@transaction), class: "d-sm-inline-block mx-auto my-2 border border-primary text-primary px-3 py-2"%>
+  <%= link_to 'Delete', @transaction, method: :delete, data: { confirm: "Are you sure?" }, class: "d-sm-inline-block mx-auto my-2 border border-danger text-danger px-3 py-2"%>
+</div>

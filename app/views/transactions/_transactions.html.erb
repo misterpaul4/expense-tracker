@@ -1,0 +1,32 @@
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Profile', root_path, class: "position-absolute move-left text-light" %>
+  <span class="text-light font-weight-bold up-font centered-text">TRANSACTIONS</span>
+  <%= link_to logout_path, method: :delete do %>
+  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
+  <% end %>
+</div>
+
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to active_link, active_link_path, class: "text-light font-weight-bold up-font centered-text" %>
+  <%= link_to inactive_link, inactive_link_path, class: "position-absolute move-right text-light" %>
+</div>
+
+<div>
+  <div class="bg-white p-3 report_stat">
+    <div class="d-flex justify-content-between">
+      <div>Total</div>
+      <div class="font-weight-bold text-danger"><%= amount(current_user.total_expenses) %></div>
+    </div>
+  </div>
+</div>
+
+<% if current_user.budget %>
+  <div class="container">
+    <label for="budget_meter" class="font-weight-bold up-font mt-2">Balance <%= balance %></label>
+    <meter id="budget_meter" value="<%= current_user.total_expenses %>" min="0" max="<%= current_user.budget %>" high="<%= current_user.budget * 0.80 %>"></meter>
+  </div>
+<% end %>
+
+<div class="bottom-btn  secondary-color p-2">
+  <%= link_to 'ADD NEW', new_transaction_path, class: "bottom-btn-link" %>
+</div>

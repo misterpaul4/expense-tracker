@@ -1,0 +1,36 @@
+<div class="h-100 primary-color">
+  <div class="text-center position-relative py-3 text-light border-bottom border-light">
+    <%= link_to 'Profile', root_path, class: "position-absolute move-left text-light" %>
+    <span class="text-light font-weight-bold up-font centered-text">CATEGORIES</span>
+    <%= link_to logout_path, method: :delete do %>
+    <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
+    <% end %>
+  </div>
+
+  <div class="grid-centered primary-color grid-bg mb-5 pb-5">
+    <div class="grid-centered-item">
+
+      <% if @categories.any? %>
+      <div class="d-flex flex-column">
+        <% @categories.each do |category| %>
+        <%= link_to category do %>
+        <div class="d-flex my-2 bg-white p-2">
+          <div class="d-flex align-items-center px-2">
+            <%= image_tag ("icons/categories/#{category.icon}"), class: "cat-box p-2 mr-sm-3 mr-2" %> <!-- icon -->
+            <div class="d-flex flex-column">
+              <p class="font-weight-bold up-font"><%= category.name %></p>
+              <span><i class="far fa-user"></i> <%= category.user.username %><br><%= date(category.created_at) %></span> <!-- info -->
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="bottom-btn  secondary-color p-2">
+  <%= link_to 'ADD NEW', new_category_path, class: "bottom-btn-link" %>
+</div>

@@ -1,0 +1,4 @@
+<%= render partial: 'form', :locals => { :title => 'EDIT CATEGORY', :form_action => 'Save' } %>
+<div class="text-center">
+<%= link_to 'Delete', @category, method: :delete, data: { confirm: 'All transactions associated with this category will also be deleted, proceed?' }, class: "px-3 py-2 delete-act-btn font-weight-bold vertical-align-middle" %>
+</div>

@@ -1,0 +1,12 @@
+<%= simple_form_for(@transaction, method: :post, url: external_transactions_new_path) do |f| %>
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Back', external_transactions_path, class: "position-absolute move-left text-light" %>
+  <span class="text-light font-weight-bold up-font centered-text">NEW TRANSACTION</span>
+  <%= f.submit 'Save', class: "position-absolute move-right text-light submit-btn" %>
+</div>
+
+  <div class="form-inputs">
+    <%= f.input :amount, placeholder: "Amount", :input_html => {value: number_with_precision(f.object.amount, precision: 2), class: "w-100 px-3 py-3 mt-2 border-0 mid-font" }, label: false  %>
+    <%= f.input :description, placeholder: "Note", label: false, input_html: { class: "w-100 px-3 py-3 mt-3 border-0 mid-font" } %>
+  </div>
+<% end %>

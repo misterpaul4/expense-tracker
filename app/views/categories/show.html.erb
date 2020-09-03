@@ -1,0 +1,39 @@
+<div class="primary-color text-center position-relative py-3 text-light">
+  <%= link_to 'Back', categories_path, class: "position-absolute move-left text-light" %>
+
+  <%= link_to edit_category_path(@category), class: "text-light font-weight-bold up-font centered-text" do %>
+    <%= @category.name %>
+    <%= image_tag ("icons/edit2.svg"), class: "action-icon" %>
+  <% end %>
+
+  <%= link_to logout_path, method: :delete do %>
+  <span class="position-absolute move-right text-light">Logout (<%= current_user.username %>)</span>
+  <% end %>
+</div>
+
+<div>
+  <div class="bg-white p-3 report_stat">
+    <div class="d-flex justify-content-between">
+      <div>Total amount spent on <%= @category.name %>:</div>
+      <div class="font-weight-bold text-danger"><%= amount(@category.total_transactions) %></div>
+    </div>
+  </div>
+</div>
+
+<div class="pb-5">
+  <% if @categories.any? %>
+  <h4 class="mt-5 mb-2 text-center">TRANSACTIONS</h4>
+    <% @categories.each do |transaction| %>
+      <%= render partial: 'transaction_card', :locals => { :transaction => transaction } %>
+    <% end %>
+
+  <% else %>
+  <h4 class="text-center mt-5
+  ">No Transactions Recorded</h4>
+  <% end %>
+<div class="mt-5"></div>
+
+<div class="bottom-btn  secondary-color p-2">
+  <%= link_to 'ADD NEW', new_categorized_transaction_path(@category), class: "bottom-btn-link" %>
+</div>
+

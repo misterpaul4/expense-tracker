@@ -1,0 +1,4 @@
+<%= render partial: 'form', :locals => { :action => 'EDIT PROFILE', :form_action => 'Save', :destination => 'Profile' } %>
+<div class="text-center mt-5">
+  <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' }, class: "px-3 py-2 delete-act-btn font-weight-bold vertical-align-middle" %>
+</div>
