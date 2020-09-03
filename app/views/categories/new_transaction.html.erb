@@ -1,6 +1,6 @@
 <%= simple_form_for(@transaction, method: :post, url: create_categorized_transaction_path) do |f| %>
 <div class="primary-color text-center position-relative py-3 text-light">
-  <%= link_to 'Back', external_transactions_path, class: "position-absolute move-left text-light" %>
+  <%= link_to 'Back', back_path(categories_path), class: "position-absolute move-left text-light" %>
   <span class="text-light font-weight-bold up-font centered-text">NEW TRANSACTION</span>
   <%= f.submit 'Save', class: "position-absolute move-right text-light submit-btn" %>
 </div>
